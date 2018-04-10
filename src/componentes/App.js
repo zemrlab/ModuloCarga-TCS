@@ -1,7 +1,6 @@
 import React from 'react';
 import TableHeader from './Table-Header';
 import PagoList from './Pago-list';
-import UploadRequest from './UploadRequest';
 import '../style/style.css';
 
 class App extends React.Component {
@@ -66,14 +65,18 @@ class App extends React.Component {
 
         return (
             <div>
-                <form className="addExcel" onSubmit={(e) => this._handleSubmit(e)}>
-                    <input className="fileInput"
-                        type="file"
-                        onChange={(e) => this._handleFileChange(e)} />
-                    <button className="submitButton"
-                        type="submit"
-                        onClick={(e) => this._handleSubmit(e)}>Cargar Excel</button>
-                </form>
+                <h2>Carga de Datos</h2>
+                <hr/>
+                <div>
+                    <form className="addExcel" onSubmit={(e) => this._handleSubmit(e)}>
+                        <input className="fileInput"
+                            type="file"
+                            onChange={(e) => this._handleFileChange(e)} />
+                        <button className="submitButton"
+                            type="submit"
+                            onClick={(e) => this._handleSubmit(e)}>Cargar Excel</button>
+                    </form>
+                </div>
                 {/* <div>
                     <table className="table">
                         <TableHeader />
