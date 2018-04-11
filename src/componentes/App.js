@@ -65,7 +65,7 @@ class App extends React.Component {
 
         return (
             <div>
-                <h2>Carga de Datos</h2>
+                <h3>Carga de Datos</h3>
                 <hr/>
                 <div>
                     <form className="addExcel" onSubmit={(e) => this._handleSubmit(e)}>
