@@ -61,8 +61,8 @@ class App extends React.Component {
         }
         reader.readAsDataURL(file)
     }
-    render() {
 
+    render() {
         return (
             <div>
                 <h3>Carga de Datos</h3>
