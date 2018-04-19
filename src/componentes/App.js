@@ -1,24 +1,37 @@
 import React from 'react';
-import TableHeader from './Table-Header';
-import PagoList from './Pago-list';
+import AppProgressBar from "./AppProgressBar";
+import { Line, Circle } from 'rc-progress';
+import { NavLink } from 'react-router-dom';
 import '../style/style.css';
 
 class App extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { file: '', excelUrl: '', pagos: [] };
+        this.state = {
+            file: '',
+            excelUrl: '',
+            pagos: [],
+            mostrarBar: false,
+            percent: 0,
+            color: '#3FC7FA'
+        };
+        this.changeState = this.changeState.bind(this);
     }
 
-    // componentDidMount() {
-    //     //const url = 'https://pokeapi.co/api/v2/pokemon/1';
-    //     const url2 = 'https://modulo-alumno-zuul.herokuapp.com/modulo-alumno-client/pago/listar/Juan/Eneque/Pisfil';
-    //     fetch(url2)
-    //         .then(respuesta => respuesta.json())
-    //         .then(pagos => this.setState({ pagos: pagos }))
-    //         .catch(error => console.error(error));
-    // }
+    componentDidMount() {
+        var x = document.getElementById("showBar");
+        var y = document.getElementById("showResultado");
+        x.style.display = "none"
+        y.style.display = "none"
+    }
 
-    _handleSubmit(e) {
+    componentDidUpdate(prevProps, prevState) {
+        if (prevState.mostrarBar !== this.state.mostrarBar) {
+            var intervalId = setInterval(this.changeState, 100);
+        }
+    };
+
+    _handleSubmit = (e) => {
         e.preventDefault();
         var data = new FormData();
         data.append('file', this.state.file);
@@ -35,7 +48,7 @@ class App extends React.Component {
             body: data
         };
         fetch('http://18.216.135.31:8080/file/upload/', sentData)
-            .then((response) => { 
+            .then((response) => {
                 console.log(response);
                 <div>
                     <p>Archivo subido correctamente</p>
@@ -45,6 +58,18 @@ class App extends React.Component {
                 // si hay algún error lo mostramos en consola
                 console.error(error)
             });
+
+        this.setState((prevState) => ({
+            mostrarBar: true,
+            percent: 0
+        }));
+
+        var x = document.getElementById("showBar");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
     }
 
     _handleFileChange(e) {
@@ -62,27 +87,77 @@ class App extends React.Component {
         reader.readAsDataURL(file)
     }
 
+    changeState() {
+        const colorMap = ['#333745', '#85D262', '#FE8C6A'];
+        const newPercent = this.state.percent + 1;
+        if (newPercent < 40) {
+            this.setState({
+                percent: newPercent,
+                color: colorMap[2]
+            });
+        } else if (newPercent < 95) {
+            this.setState({
+                percent: newPercent,
+                color: colorMap[1]
+            });
+        } else if (newPercent < 100) {
+            this.setState({
+                percent: newPercent,
+                color: colorMap[0]
+            });
+        } else if(newPercent === 100){
+            this.setState({
+                percent: newPercent,
+                color: colorMap[0]
+            });
+            var x = document.getElementById("showResultado");
+            x.style.display = "block";
+        } else{
+            //clearInterval(this.state.intervalId);
+        }
+    }
+
     render() {
+        const containerStyle = {
+            width: '350px',
+        };
+        const circleContainerStyle = {
+            width: '350px',
+            height: '350px',
+            display: 'inline-block',
+        };
         return (
             <div>
-                <h3>Carga de Datos</h3>
-                <hr/>
-                <div>
-                    <form className="addExcel" onSubmit={(e) => this._handleSubmit(e)}>
+                <div className="addExcel" >
+                    <form onSubmit={(e) => this._handleSubmit(e)}>
                         <input className="fileInput"
                             type="file"
                             onChange={(e) => this._handleFileChange(e)} />
-                        <button className="submitButton"
+                        <button 
+                            disabled={this.state.excelUrl.trim() == ''}
+                            className="submitButton"
                             type="submit"
                             onClick={(e) => this._handleSubmit(e)}>Cargar Excel</button>
                     </form>
                 </div>
-                {/* <div>
-                    <table className="table">
-                        <TableHeader />
-                        <PagoList listado={this.state.pagos} />
-                    </table>
-                </div> */}
+
+                <div className="bar" id="showBar">
+                    <div style={circleContainerStyle}>
+                        <Circle
+                            percent={this.state.percent}
+                            strokeWidth="6"
+                            strokeLinecap="round"
+                            strokeColor={this.state.color}
+                        />
+                    </div>
+                    <div style={containerStyle}>
+                        <Line percent={this.state.percent} strokeWidth="4" strokeColor={this.state.color} />
+                    </div>
+                    <h4>Progress: {this.state.percent}%</h4>
+                </div>
+                <div className="resultado" id="showResultado">
+                    <NavLink to="/results" activeClassName="is-active" exact={true}>Ver Resultados</NavLink>
+                </div>
             </div>
         )
     }

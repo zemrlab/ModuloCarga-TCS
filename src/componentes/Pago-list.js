@@ -7,9 +7,9 @@ class PagoList extends React.Component {
     return (
         <tbody>
           {
-            this.props.listado.map((pago) => {
-              return <PagoRow key={pago.idPago.toString()} 
-                                  pago={ pago} />
+            this.props.listado.map((content) => {
+              return <PagoRow key={content.file.toString()} 
+                                  content={content} />
             })
           }
         </tbody>

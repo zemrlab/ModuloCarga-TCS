@@ -8,16 +8,27 @@ h3 {
     font-size: 25px;
     width : 50%;
     /* margin: 0 auto; */
-    width:100%;
+    width:96%;
     font-weight: bold;
     font-family: 'Times New Roman', Times, serif;
   }
-  .addExcel {
+  h4 {
+    text-align: center;
+  }
+   .addExcel {
     position: fixed;
-    top: 50%;
-    left: 50%;
-    margin-top: -200px;
-    margin-left: -180px;
+    left: 35%;
+  }
+  .bar {
+    position: fixed;
+    top: 32%;
+    left: 38%;
+  }
+  .resultado {
+    position: fixed;
+    top: 54%;
+    left: 45%;
+    font-size: 25px;
   }
   .fileInput {
     border-bottom: 4px solid #d3d3d3;
