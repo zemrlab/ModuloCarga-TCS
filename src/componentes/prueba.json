@@ -1,0 +1,24 @@
+{
+  "content": [
+    {
+      "file": "sistemas01.xls",
+      "ok": 50,
+      "errores": 25
+    },
+    {
+      "file": "sistemas02.xls",
+      "ok": 50,
+      "errores": 25
+    },
+    {
+      "file": "sistemas03.xls",
+      "ok": 50,
+      "errores": 25
+    }
+  ],
+  "comentario": [
+    {
+      "estado": "con errores"
+    }
+  ]
+}

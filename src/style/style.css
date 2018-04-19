@@ -70,7 +70,7 @@ h3 {
     background-color:#333745;
     color: white;
     border: 3px solid WHITE;
-    border-radius: 15px;
+    /* border-radius: 15px; */
     /*border-bottom: 1px solid #ddd;para borde solo horizontal*/
   }
   .td{

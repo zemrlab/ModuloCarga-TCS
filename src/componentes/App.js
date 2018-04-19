@@ -10,7 +10,6 @@ class App extends React.Component {
         this.state = {
             file: '',
             excelUrl: '',
-            pagos: [],
             mostrarBar: false,
             percent: 0,
             color: '#3FC7FA'
@@ -39,7 +38,7 @@ class App extends React.Component {
         console.log(this.state.file);
 
         let header = new Headers({
-            'Content-Type': 'mapplication/x-www-form-urlencoded'
+            'Content-Type': 'application/x-www-form-urlencoded'
         });
         let sentData = {
             method: 'POST',
@@ -47,12 +46,9 @@ class App extends React.Component {
             header: header,
             body: data
         };
-        fetch('http://18.216.135.31:8080/file/upload/', sentData)
+        fetch('http://18.216.135.31:8080/recaudaciones/upload/', sentData)
             .then((response) => {
                 console.log(response);
-                <div>
-                    <p>Archivo subido correctamente</p>
-                </div>
             })
             .catch(error => {
                 // si hay algún error lo mostramos en consola
@@ -155,7 +151,7 @@ class App extends React.Component {
                     </div>
                     <h4>Progress: {this.state.percent}%</h4>
                 </div>
-                <div className="resultado" id="showResultado">
+                <div className="" id="showResultado">
                     <NavLink to="/results" activeClassName="is-active" exact={true}>Ver Resultados</NavLink>
                 </div>
             </div>

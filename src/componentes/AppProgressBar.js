@@ -24,7 +24,7 @@ class AppProgressBar extends Component {
     }
 
     changeState() {
-        const colorMap = ['#3FC7FA', '#85D262', '#FE8C6A'];
+        const colorMap = ['#333745', '#85D262', '#FE8C6A'];
         const newPercent = this.state.percent + 1;
         if (newPercent < 40) {
             this.setState({
@@ -36,11 +36,18 @@ class AppProgressBar extends Component {
                 percent: newPercent,
                 color: colorMap[1]
             });
-        } else if (newPercent < 101) {
+        } else if (newPercent < 100) {
             this.setState({
                 percent: newPercent,
                 color: colorMap[0]
             });
+        } else if (newPercent === 100) {
+            this.setState({
+                percent: newPercent,
+                color: colorMap[0]
+            });
+            var x = document.getElementById("showResultado");
+            x.style.display = "block";
         } else {
             //clearInterval(this.state.intervalId);
         }
@@ -48,20 +55,15 @@ class AppProgressBar extends Component {
 
     render() {
         const containerStyle = {
-            width: '250px',
+            width: '350px',
         };
         const circleContainerStyle = {
-            width: '250px',
-            height: '250px',
+            width: '350px',
+            height: '350px',
             display: 'inline-block',
         };
         return (
-            <div>
-                <h2>Line Progress {this.state.percent}%</h2>
-                <div style={containerStyle}>
-                    <Line percent={this.state.percent} strokeWidth="4" strokeColor={this.state.color} />
-                </div>
-                <h2>Circle Progress {this.state.percent}%</h2>
+            <div className="bar" id="showBar">
                 <div style={circleContainerStyle}>
                     <Circle
                         percent={this.state.percent}
@@ -70,6 +72,10 @@ class AppProgressBar extends Component {
                         strokeColor={this.state.color}
                     />
                 </div>
+                <div style={containerStyle}>
+                    <Line percent={this.state.percent} strokeWidth="4" strokeColor={this.state.color} />
+                </div>
+                <h4>Progress: {this.state.percent}%</h4>
             </div>
         );
     }
