@@ -12,7 +12,8 @@ class App extends React.Component {
             excelUrl: '',
             mostrarBar: false,
             percent: 0,
-            color: '#3FC7FA'
+            color: '#3FC7FA',
+            respuesta: null
         };
         this.changeState = this.changeState.bind(this);
     }
@@ -26,7 +27,7 @@ class App extends React.Component {
 
     componentDidUpdate(prevProps, prevState) {
         if (prevState.mostrarBar !== this.state.mostrarBar) {
-            var intervalId = setInterval(this.changeState, 100);
+            var intervalId = setInterval(this.changeState, 1);
         }
     };
 
@@ -48,7 +49,7 @@ class App extends React.Component {
         };
         fetch('http://18.216.135.31:8080/recaudaciones/upload/', sentData)
             .then((response) => {
-                console.log(response);
+                this.setState({ respuesta: response })
             })
             .catch(error => {
                 // si hay algún error lo mostramos en consola
@@ -57,7 +58,7 @@ class App extends React.Component {
 
         this.setState((prevState) => ({
             mostrarBar: true,
-            percent: 0
+            percent: 1
         }));
 
         var x = document.getElementById("showBar");
@@ -85,32 +86,45 @@ class App extends React.Component {
 
     changeState() {
         const colorMap = ['#333745', '#85D262', '#FE8C6A'];
-        const newPercent = this.state.percent + 1;
-        if (newPercent < 40) {
-            this.setState({
-                percent: newPercent,
-                color: colorMap[2]
-            });
-        } else if (newPercent < 95) {
-            this.setState({
-                percent: newPercent,
-                color: colorMap[1]
-            });
-        } else if (newPercent < 100) {
+        let newPercent = this.state.percent + 1;
+        console.log(this.state.respuesta);
+        if (!this.state.respuesta) {
             this.setState({
                 percent: newPercent,
                 color: colorMap[0]
             });
-        } else if(newPercent === 100){
+        }else{
+            newPercent = 100;
             this.setState({
                 percent: newPercent,
                 color: colorMap[0]
             });
-            var x = document.getElementById("showResultado");
-            x.style.display = "block";
-        } else{
-            //clearInterval(this.state.intervalId);
         }
+        // if (newPercent < 40) {
+        //     this.setState({
+        //         percent: newPercent,
+        //         color: colorMap[2]
+        //     });
+        // } else if (newPercent < 95) {
+        //     this.setState({
+        //         percent: newPercent,
+        //         color: colorMap[1]
+        //     });
+        // } else if (newPercent < 100) {
+        //     this.setState({
+        //         percent: newPercent,
+        //         color: colorMap[0]
+        //     });
+        // } else if(newPercent === 100){
+        //     this.setState({
+        //         percent: newPercent,
+        //         color: colorMap[0]
+        //     });
+        //     var x = document.getElementById("showResultado");
+        //     x.style.display = "block";
+        // } else{
+        //     //clearInterval(this.state.intervalId);
+        // }
     }
 
     render() {
@@ -129,7 +143,7 @@ class App extends React.Component {
                         <input className="fileInput"
                             type="file"
                             onChange={(e) => this._handleFileChange(e)} />
-                        <button 
+                        <button
                             disabled={this.state.excelUrl.trim() == ''}
                             className="submitButton"
                             type="submit"
