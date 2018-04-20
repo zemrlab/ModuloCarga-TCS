@@ -13,7 +13,7 @@ class App extends React.Component {
             mostrarBar: false,
             percent: 0,
             color: '#3FC7FA',
-            respuesta: null
+            respuesta: 0
         };
         this.changeState = this.changeState.bind(this);
     }
@@ -35,21 +35,22 @@ class App extends React.Component {
         e.preventDefault();
         var data = new FormData();
         data.append('file', this.state.file);
-        data.append('remark', "pruebas")
+        data.append('tipo', "zip");
+        data.append('name', "Ccopa");
         console.log(this.state.file);
 
-        let header = new Headers({
-            'Content-Type': 'application/x-www-form-urlencoded'
-        });
         let sentData = {
             method: 'POST',
-            mode: 'no-cors',
-            header: header,
             body: data
         };
-        fetch('http://18.216.135.31:8080/recaudaciones/upload/', sentData)
-            .then((response) => {
-                this.setState({ respuesta: response })
+        fetch('http://localhost:8000/recaudaciones/upload/', sentData)
+            .then(response => {
+                response.json()
+                        .then((json) => this.setState ({
+                            respuesta: json
+                        })
+                    );
+                        
             })
             .catch(error => {
                 // si hay algún error lo mostramos en consola
@@ -87,7 +88,7 @@ class App extends React.Component {
     changeState() {
         const colorMap = ['#333745', '#85D262', '#FE8C6A'];
         let newPercent = this.state.percent + 1;
-        console.log(this.state.respuesta);
+        
         if (!this.state.respuesta) {
             this.setState({
                 percent: newPercent,
@@ -99,32 +100,10 @@ class App extends React.Component {
                 percent: newPercent,
                 color: colorMap[0]
             });
+            var x = document.getElementById("showResultado");
+            x.style.display = "block"
+            //console.log(JSON.stringify(this.state.respuesta['total_inserciones']));
         }
-        // if (newPercent < 40) {
-        //     this.setState({
-        //         percent: newPercent,
-        //         color: colorMap[2]
-        //     });
-        // } else if (newPercent < 95) {
-        //     this.setState({
-        //         percent: newPercent,
-        //         color: colorMap[1]
-        //     });
-        // } else if (newPercent < 100) {
-        //     this.setState({
-        //         percent: newPercent,
-        //         color: colorMap[0]
-        //     });
-        // } else if(newPercent === 100){
-        //     this.setState({
-        //         percent: newPercent,
-        //         color: colorMap[0]
-        //     });
-        //     var x = document.getElementById("showResultado");
-        //     x.style.display = "block";
-        // } else{
-        //     //clearInterval(this.state.intervalId);
-        // }
     }
 
     render() {
@@ -152,20 +131,13 @@ class App extends React.Component {
                 </div>
 
                 <div className="bar" id="showBar">
-                    <div style={circleContainerStyle}>
-                        <Circle
-                            percent={this.state.percent}
-                            strokeWidth="6"
-                            strokeLinecap="round"
-                            strokeColor={this.state.color}
-                        />
-                    </div>
                     <div style={containerStyle}>
                         <Line percent={this.state.percent} strokeWidth="4" strokeColor={this.state.color} />
                     </div>
-                    <h4>Progress: {this.state.percent}%</h4>
                 </div>
+
                 <div className="" id="showResultado">
+                    <p>{this.state.respuesta['total_inserciones']}</p>
                     <NavLink to="/results" activeClassName="is-active" exact={true}>Ver Resultados</NavLink>
                 </div>
             </div>
