@@ -6,6 +6,7 @@ import { Line, Circle } from 'rc-progress';
 //import '../style/style.css';
 import prueba from './prueba';
 import TableResults from './TableResults';
+import { Button } from 'react-bootstrap';
 
 class App extends React.Component {
     constructor(props) {
@@ -130,6 +131,7 @@ class App extends React.Component {
         return (
             <div>
                 <div className="addExcel" >
+                    <h1>Módulo de Carga</h1>
                     <form onSubmit={(e) => this.handleSubmit(e)}>
                         <label>
                             Usuario:
