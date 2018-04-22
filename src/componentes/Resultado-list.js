@@ -8,8 +8,10 @@ class ResultadoList extends React.Component {
         <tbody>
           {
             this.props.listado.map((content) => {
-              return <ResultadoRow key={content.file} 
-                                  content={content} />
+              return <ResultadoRow 
+                          tipo={this.props.tipo}
+                          key={content.file} 
+                          content={content} />
             })
           }
         </tbody>

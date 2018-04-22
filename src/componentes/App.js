@@ -1,8 +1,11 @@
 import React from 'react';
 import AppProgressBar from "./AppProgressBar";
+import TableHeader from './Table-Header';
+import ResultadoList from './Resultado-list';
 import { Line, Circle } from 'rc-progress';
-import { NavLink } from 'react-router-dom';
-import '../style/style.css';
+//import '../style/style.css';
+import prueba from './prueba';
+import TableResults from './TableResults';
 
 class App extends React.Component {
     constructor(props) {
@@ -10,28 +13,31 @@ class App extends React.Component {
         this.state = {
             file: '',
             excelUrl: '',
-            mostrarBar: false,
-            percent: 0,
-            color: '#3FC7FA',
-            respuesta: 0
+            usuario: 'Anonymous',
+            value: 'a',
+            archivo: null,
+            total_inserciones: 0,
+            good_files: 0,
+            bad_files: 0
         };
-        this.changeState = this.changeState.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        //this.handleFileChange = this.handleFileChange.bind(this);
     }
 
-    componentDidMount() {
-        var x = document.getElementById("showBar");
-        var y = document.getElementById("showResultado");
-        x.style.display = "none"
-        y.style.display = "none"
-    }
+    // componentDidMount() {
+    //     var x = document.getElementById("showBar");
+    //     var y = document.getElementById("showResultado");
+    //     x.style.display = "none"
+    //     y.style.display = "none"
+    // }
 
-    componentDidUpdate(prevProps, prevState) {
-        if (prevState.mostrarBar !== this.state.mostrarBar) {
-            var intervalId = setInterval(this.changeState, 1);
-        }
-    };
+    // componentDidUpdate(prevProps, prevState) {
+    //     if (prevState.mostrarBar !== this.state.mostrarBar) {
+    //         var intervalId = setInterval(this.changeState, 1);
+    //     }
+    // };
 
-    _handleSubmit = (e) => {
+    handleSubmit = (e) => {
         e.preventDefault();
         var data = new FormData();
         data.append('file', this.state.file);
@@ -41,104 +47,121 @@ class App extends React.Component {
 
         let sentData = {
             method: 'POST',
+            mode: 'no-cors',
             body: data
         };
-        fetch('http://localhost:8000/recaudaciones/upload/', sentData)
-            .then(response => {
-                response.json()
-                        .then((json) => this.setState ({
-                            respuesta: json
-                        })
-                    );
-                        
-            })
-            .catch(error => {
-                // si hay algún error lo mostramos en consola
-                console.error(error)
-            });
+        // fetch('http://18.216.135.31:8080/recaudaciones/upload/', sentData)
+        // .then(response => {
+        //     response.json()
+        //         .then((json) => this.setState({
+        //             resultado: json
+        //         })
+        //         );
 
-        this.setState((prevState) => ({
-            mostrarBar: true,
-            percent: 1
-        }));
+        // })
+        // .catch(error => {
+        //     console.error(error)
+        // });
 
-        var x = document.getElementById("showBar");
-        if (x.style.display === "none") {
-            x.style.display = "block";
-        } else {
-            x.style.display = "none";
-        }
+        alert(this.state.usuario);
+        console.log(this.state.value);
+        console.log(this.state.file);
+
+        this.setState({
+            archivo: prueba.file,
+            total_inserciones: prueba.total_inserciones,
+            good_files: prueba.good_files,
+            bad_files: prueba.bad_files
+        })
+
+        // const url = 'http://localhost:3000/content';
+        // fetch(url)
+        //     .then(respuesta => {
+        //         respuesta.json()
+        //             .then((json) => this.setState({
+        //                 resultado: json
+        //             })
+        //             )
+        //     })
+        //     .catch(error => console.error(error));
     }
 
-    _handleFileChange(e) {
+    handleFileChange(e) {
         e.preventDefault();
 
         let reader = new FileReader();
         let file = e.target.files[0];
-
         reader.onloadend = () => {
             this.setState({
                 file: file,
-                excelUrl: reader.result
+                excelUrl: reader.result,
             });
         }
         reader.readAsDataURL(file)
     }
 
-    changeState() {
-        const colorMap = ['#333745', '#85D262', '#FE8C6A'];
-        let newPercent = this.state.percent + 1;
-        
-        if (!this.state.respuesta) {
-            this.setState({
-                percent: newPercent,
-                color: colorMap[0]
-            });
-        }else{
-            newPercent = 100;
-            this.setState({
-                percent: newPercent,
-                color: colorMap[0]
-            });
-            var x = document.getElementById("showResultado");
-            x.style.display = "block"
-            //console.log(JSON.stringify(this.state.respuesta['total_inserciones']));
-        }
+    handleChange(event) {
+        this.setState({ usuario: event.target.value2 });
+        //alert(this.state.usuario);
     }
 
+    // changeState() {
+    //     const colorMap = ['#333745', '#85D262', '#FE8C6A'];
+    //     let newPercent = this.state.percent + 1;
+
+    //     if (!this.state.respuesta) {
+    //         this.setState({
+    //             percent: newPercent,
+    //             color: colorMap[0]
+    //         });
+    //     }else{
+    //         newPercent = 100;
+    //         this.setState({
+    //             percent: newPercent,
+    //             color: colorMap[0]
+    //         });
+    //         var x = document.getElementById("showResultado");
+    //         x.style.display = "block"
+    //         //console.log(JSON.stringify(this.state.respuesta['total_inserciones']));
+    //     }
+    // }
+
     render() {
-        const containerStyle = {
-            width: '350px',
-        };
-        const circleContainerStyle = {
-            width: '350px',
-            height: '350px',
-            display: 'inline-block',
-        };
         return (
             <div>
                 <div className="addExcel" >
-                    <form onSubmit={(e) => this._handleSubmit(e)}>
+                    <form onSubmit={(e) => this.handleSubmit(e)}>
+                        <label>
+                            Usuario:
+                                <input
+                                type="text" value2={this.state.usuario} onChange={this.handleChange}
+                            />
+                        </label>
                         <input className="fileInput"
                             type="file"
-                            onChange={(e) => this._handleFileChange(e)} />
+                            onChange={(e) => this.handleFileChange(e)} />
+                        <label>
+                            <select
+                                value={this.state.value}
+                                onChange={(e) => { this.setState({ value: e.target.value }) }}
+                            >
+                                <option value="a" disabled>Tipo de Archivo</option>
+                                <option value="excel">Excel (.xls)</option>
+                                <option value="zip">Zip (.zip)</option>
+                            </select>
+                        </label>
                         <button
                             disabled={this.state.excelUrl.trim() == ''}
                             className="submitButton"
                             type="submit"
-                            onClick={(e) => this._handleSubmit(e)}>Cargar Excel</button>
+                            onClick={(e) => this.handleSubmit(e)}>Cargar Excel</button>
                     </form>
-                </div>
-
-                <div className="bar" id="showBar">
-                    <div style={containerStyle}>
-                        <Line percent={this.state.percent} strokeWidth="4" strokeColor={this.state.color} />
-                    </div>
-                </div>
-
-                <div className="" id="showResultado">
-                    <p>{this.state.respuesta['total_inserciones']}</p>
-                    <NavLink to="/results" activeClassName="is-active" exact={true}>Ver Resultados</NavLink>
+                    <TableResults
+                        archivo={this.state.archivo}
+                        total_inserciones={this.state.total_inserciones}
+                        good_files={this.state.good_files}
+                        bad_files={this.state.bad_files}
+                    />
                 </div>
             </div>
         )

@@ -1,35 +1,57 @@
 import React from 'react';
 import TableHeader from './Table-Header';
 import ResultadoList from './Resultado-list';
-import { NavLink } from 'react-router-dom';
 
 class TableResults extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            resultado: []
+            tipo: 'good',
+            listado: []
         }
     }
 
-    componentDidMount() {
-        const url = 'http://localhost:3000/content';
-        fetch(url)
-            .then(respuesta => respuesta.json())
-            .then(resultado=> this.setState({ resultado: resultado}))
-            .catch(error => console.error(error));
+    selectGoodTable() {
+        this.setState({
+            tipo: 'good',
+            listado: this.props.good_files
+        })
+    }
+    selectBadTable() {
+        this.setState({
+            tipo: 'bad',
+            listado: this.props.bad_files
+        })
     }
 
     render() {
-        return (
-            <div>
-                <TableHeader />
-                <ResultadoList listado= {this.state.resultado}/>
+        if (!this.props.archivo) {
+            return (
                 <div>
-                    <br />
-                    <NavLink to="/" activeClassName="is-active" exact={true}>Retornar</NavLink>
+                    <p>Cargando...</p>
                 </div>
-            </div>
-        )
+            )
+        } else {
+            return (
+                <div>
+                    <div className="addExcel" >
+                        <p>Total inserciones: {this.props.total_inserciones}</p>
+                        <p>Archivo: {this.props.archivo}</p>
+                        <button
+                            onClick={() => this.selectGoodTable()}
+                        >Correctos</button>
+                        <button
+                            onClick={() => this.selectBadTable()}
+                        >Fallidos</button>
+                        <TableHeader />
+                        <ResultadoList
+                            tipo={this.state.tipo}
+                            listado={this.state.listado}
+                        />
+                    </div>
+                </div>
+            )
+        }
     }
 }
 

@@ -6,9 +6,8 @@ class TableHeader extends React.Component {
     return (
       <thead>
         <tr>
-          <th className="th">ARCHIVO</th>
-          <th className="th">CARGA CORRECTA</th>
-          <th className="th">CARGA ERRONEA</th>
+          <th className="th">NOMBRE</th>
+          <th className="th">DETALLE</th>
         </tr>
       </thead>
     )
