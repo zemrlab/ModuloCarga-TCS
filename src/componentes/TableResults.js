@@ -11,6 +11,14 @@ class TableResults extends React.Component {
         }
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        if (prevProps.archivo !== this.props.archivo) {
+            this.setState((prevState) => ({
+                listado: this.props.good_files
+            }))
+        }
+    }
+
     selectGoodTable() {
         this.setState({
             tipo: 'good',

@@ -13,12 +13,12 @@ class App extends React.Component {
         this.state = {
             file: '',
             excelUrl: '',
-            usuario: 'Anonymous',
+            usuario: '',
             value: 'a',
             archivo: null,
             total_inserciones: 0,
-            good_files: 0,
-            bad_files: 0
+            good_files: null,
+            bad_files: null
         };
         this.handleChange = this.handleChange.bind(this);
         //this.handleFileChange = this.handleFileChange.bind(this);
@@ -133,8 +133,10 @@ class App extends React.Component {
                     <form onSubmit={(e) => this.handleSubmit(e)}>
                         <label>
                             Usuario:
-                                <input
-                                type="text" value2={this.state.usuario} onChange={this.handleChange}
+                            <input
+                                type="text"
+                                value={this.state.usuario}
+                                onChange={(e)=> {this.setState({usuario: e.target.value})}}
                             />
                         </label>
                         <input className="fileInput"
