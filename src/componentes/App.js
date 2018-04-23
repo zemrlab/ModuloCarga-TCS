@@ -3,10 +3,13 @@ import AppProgressBar from "./AppProgressBar";
 import TableHeader from './Table-Header';
 import ResultadoList from './Resultado-list';
 import { Line, Circle } from 'rc-progress';
-//import '../style/style.css';
+import '../style/style.css';
+import '../style/table.css';
+import '../style/button.css';
+import '../style/fileInput.css';
+import '../style/label.css';
 import prueba from './prueba';
 import TableResults from './TableResults';
-import { Button } from 'react-bootstrap';
 
 class App extends React.Component {
     constructor(props) {
@@ -42,8 +45,8 @@ class App extends React.Component {
         e.preventDefault();
         var data = new FormData();
         data.append('file', this.state.file);
-        data.append('tipo', "zip");
-        data.append('name', "Ccopa");
+        data.append('tipo', this.state.value);
+        data.append('name', this.state.usuario);
         console.log(this.state.file);
 
         let sentData = {
@@ -74,17 +77,6 @@ class App extends React.Component {
             good_files: prueba.good_files,
             bad_files: prueba.bad_files
         })
-
-        // const url = 'http://localhost:3000/content';
-        // fetch(url)
-        //     .then(respuesta => {
-        //         respuesta.json()
-        //             .then((json) => this.setState({
-        //                 resultado: json
-        //             })
-        //             )
-        //     })
-        //     .catch(error => console.error(error));
     }
 
     handleFileChange(e) {
@@ -130,15 +122,16 @@ class App extends React.Component {
     render() {
         return (
             <div>
+                <h1>Módulo Carga de Datos</h1>
                 <div className="addExcel" >
-                    <h1>Módulo de Carga</h1>
                     <form onSubmit={(e) => this.handleSubmit(e)}>
-                        <label>
+                        <label className="label">
                             Usuario:
                             <input
+                                className="input"
                                 type="text"
                                 value={this.state.usuario}
-                                onChange={(e)=> {this.setState({usuario: e.target.value})}}
+                                onChange={(e) => { this.setState({ usuario: e.target.value }) }}
                             />
                         </label>
                         <input className="fileInput"
@@ -146,6 +139,7 @@ class App extends React.Component {
                             onChange={(e) => this.handleFileChange(e)} />
                         <label>
                             <select
+                                className="input"
                                 value={this.state.value}
                                 onChange={(e) => { this.setState({ value: e.target.value }) }}
                             >
@@ -156,10 +150,11 @@ class App extends React.Component {
                         </label>
                         <button
                             disabled={this.state.excelUrl.trim() == ''}
-                            className="submitButton"
+                            className="myButton"
                             type="submit"
                             onClick={(e) => this.handleSubmit(e)}>Cargar Excel</button>
                     </form>
+                    <hr className="br" />
                     <TableResults
                         archivo={this.state.archivo}
                         total_inserciones={this.state.total_inserciones}

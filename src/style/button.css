@@ -1,0 +1,65 @@
+.myButton {
+    margin-left: 40px;
+    background: #ffffff;
+    background-image: -webkit-linear-gradient(top, #ffffff, #ffffff);
+    background-image: -moz-linear-gradient(top, #ffffff, #ffffff);
+    background-image: -ms-linear-gradient(top, #ffffff, #ffffff);
+    background-image: -o-linear-gradient(top, #ffffff, #ffffff);
+    background-image: linear-gradient(to bottom, #ffffff, #ffffff);
+    -webkit-border-radius: 6;
+    -moz-border-radius: 6;
+    border-radius: 6px;
+    font-family: Arial;
+    color: #000000;
+    font-size: 16px;
+    padding: 7px 15px 10px 19px;
+    border: solid #1f628d 2px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .myButton:hover {
+    text-decoration: none;
+  }
+  .myButton:disabled {
+    cursor: default;
+  }
+
+  .myButton2 {
+    margin-left: 100px;
+    background: #ffffff;
+    background-image: -webkit-linear-gradient(top, #ffffff, #ffffff);
+    background-image: -moz-linear-gradient(top, #ffffff, #ffffff);
+    background-image: -ms-linear-gradient(top, #ffffff, #ffffff);
+    background-image: -o-linear-gradient(top, #ffffff, #ffffff);
+    background-image: linear-gradient(to bottom, #ffffff, #ffffff);
+    -webkit-border-radius: 6;
+    -moz-border-radius: 6;
+    border-radius: 6px 0px 0px 6px;
+    font-family: Arial;
+    color: #000000;
+    font-size: 16px;
+    padding: 7px 15px 10px 19px;
+    border: solid #1f628d 2px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+.myButton3 {
+    margin-left: 0px;
+    background: #ffffff;
+    background-image: -webkit-linear-gradient(top, #ffffff, #ffffff);
+    background-image: -moz-linear-gradient(top, #ffffff, #ffffff);
+    background-image: -ms-linear-gradient(top, #ffffff, #ffffff);
+    background-image: -o-linear-gradient(top, #ffffff, #ffffff);
+    background-image: linear-gradient(to bottom, #ffffff, #ffffff);
+    -webkit-border-radius: 6;
+    -moz-border-radius: 6;
+    border-radius: 0px 6px 6px 0px;
+    font-family: Arial;
+    color: #000000;
+    font-size: 16px;
+    padding: 7px 15px 10px 19px;
+    border: solid #1f628d 2px;
+    text-decoration: none;
+    cursor: pointer;
+  }

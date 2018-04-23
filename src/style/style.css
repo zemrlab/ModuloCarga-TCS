@@ -1,43 +1,16 @@
-h3 {
+h1 {
     margin-left: 15px;
-    background-color: #333745;
+    background-color: #36b93d;
     color: white;
-    padding: 12px;
+    padding: 40px;
     text-align: center;
-    font-weight: 100;
-    font-size: 25px;
-    width : 50%;
-    /* margin: 0 auto; */
-    width:96%;
-    font-weight: bold;
-    font-family: 'Times New Roman', Times, serif;
-  }
-  h4 {
-    text-align: center;
-  }
-   .addExcel {
-    position: fixed;
-    left: 35%;
-  }
-  .bar {
-    position: fixed;
-    top: 32%;
-    left: 38%;
-  }
-  .resultado {
-    position: fixed;
-    top: 54%;
-    left: 45%;
-    font-size: 25px;
-  }
-  .fileInput {
-    border-bottom: 4px solid #d3d3d3;
-    border-right: 4px solid #d3d3d3;
-    border-top: 1px solid #000;
-    border-left: 1px solid #000;
-    padding: 10px;
-    margin: 15px;
-    cursor: pointer;
+    text-align-last: center;
+    letter-spacing: 0px;
+    font-weight: normal;
+    font-size: 50px;
+    margin: 0 auto;
+    width:98%;
+    font-family: Verdana, Geneva, sans-serif;
   }
   .submitButton {
     padding: 12px;
@@ -81,4 +54,10 @@ h3 {
     border: 3px solid WHITE;
     /*border-bottom: 1px solid #ddd;para borde solo horizontal*/
   }
+
+  br {
+    height:30pt; 
+    visibility:hidden;
+ }
+
 
