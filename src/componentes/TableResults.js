@@ -1,7 +1,7 @@
 import React from 'react';
 import TableHeader from './Table-Header';
 import ResultadoList from './Resultado-list';
-import { Table , ButtonGroup , Button } from 'react-bootstrap';
+import { Table, ButtonGroup, Button } from 'react-bootstrap';
 
 class TableResults extends React.Component {
     constructor(props) {
@@ -34,33 +34,61 @@ class TableResults extends React.Component {
     }
 
     render() {
-        if (!this.props.archivo) {
-            return (
-                <div>
-                    <p>Cargando...</p>
-                </div>
-            )
+        if(!this.props.archivo) {
+            if(this.props.select) {
+                return (
+                    <div>
+                        <div className="container">
+                            <div className="row center-xs">
+                                Cargando...
+                            </div>
+                        </div>
+                    </div>
+                )
+            } else {
+                return (
+                    <div></div>
+                )
+            }
         } else {
             return (
                 <div>
-                    <div className="addExcel" >
-                        <p className="label-carga">Total inserciones: {this.props.total_inserciones}</p>
-                        <p className="label-carga">Archivo: {this.props.archivo}</p>
-                        <button
-                            className="myButton2"
-                            onClick={() => this.selectGoodTable()}
-                        >Correctos</button>
-                        <button
-                            className="myButton3"
-                            onClick={() => this.selectBadTable()}
-                        >Fallidos</button>
-                        <table className="darkTable">
-                            <TableHeader />
-                            <ResultadoList
-                                tipo={this.state.tipo}
-                                listado={this.state.listado}
-                            />
-                        </table>
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-xs-12 col-md-4">
+                                <form>
+                                    <label className="label-carga">
+                                        Total inserciones: 
+                                    </label>
+                                    <label className="label-number">
+                                        {this.props.total_inserciones}
+                                    </label>
+                                </form>
+                                <hr />
+                                <p className="label-carga">Archivo: {this.props.archivo}</p>
+                            </div>
+                            <div className="col-xs-12 col-md-7">
+                                <br/>
+                                <div className="row center-xs">
+                                <button
+                                    className="myButton2"
+                                    onClick={() => this.selectGoodTable()}
+                                >Correctos</button>
+                                <button
+                                    className="myButton3"
+                                    onClick={() => this.selectBadTable()}
+                                >Fallidos</button>
+                                </div>
+                                <br/><br/>
+                                <table className="table">
+                                    <TableHeader />
+                                    <ResultadoList
+                                        tipo={this.state.tipo}
+                                        listado={this.state.listado}
+                                    />
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             )

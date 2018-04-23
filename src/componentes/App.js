@@ -8,8 +8,10 @@ import '../style/table.css';
 import '../style/button.css';
 import '../style/fileInput.css';
 import '../style/label.css';
+import '../flexboxgrid.min.css';
 import prueba from './prueba';
 import TableResults from './TableResults';
+import { PageHeader } from 'react-bootstrap';
 
 class App extends React.Component {
     constructor(props) {
@@ -17,6 +19,7 @@ class App extends React.Component {
         this.state = {
             file: '',
             excelUrl: '',
+            select: false,
             usuario: '',
             value: 'a',
             archivo: null,
@@ -75,7 +78,8 @@ class App extends React.Component {
             archivo: prueba.file,
             total_inserciones: prueba.total_inserciones,
             good_files: prueba.good_files,
-            bad_files: prueba.bad_files
+            bad_files: prueba.bad_files,
+            select: true
         })
     }
 
@@ -120,9 +124,10 @@ class App extends React.Component {
     // }
 
     render() {
+        const wellStyles = { color: "white" };
         return (
             <div>
-                <h1>Módulo Carga de Datos</h1>
+                <PageHeader style={wellStyles}>Módulo Carga de Datos</PageHeader>
                 <div className="addExcel" >
                     <form onSubmit={(e) => this.handleSubmit(e)}>
                         <label className="label">
@@ -152,14 +157,15 @@ class App extends React.Component {
                             disabled={this.state.excelUrl.trim() == ''}
                             className="myButton"
                             type="submit"
-                            onClick={(e) => this.handleSubmit(e)}>Cargar Excel</button>
+                            onClick={(e) => this.handleSubmit(e)}>Subir Archivo</button>
                     </form>
-                    <hr className="br" />
+                    <hr />
                     <TableResults
                         archivo={this.state.archivo}
                         total_inserciones={this.state.total_inserciones}
                         good_files={this.state.good_files}
                         bad_files={this.state.bad_files}
+                        select={this.state.select}
                     />
                 </div>
             </div>

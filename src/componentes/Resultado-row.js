@@ -6,17 +6,17 @@ class ResultadoRow extends React.Component {
     if(this.props.tipo === 'good'){
       return(
         <tr>
-          <td>{this.props.number}</td>
-          <td >{this.props.content.file}</td>
-          <td >{this.props.content.nro_registros}</td>
+          <td className="td">{this.props.number}</td>
+          <td className="td">{this.props.content.file}</td>
+          <td className="td">{this.props.content.nro_registros}</td>
         </tr>
         )
     }else {
       return(
         <tr>
-          <td >{this.props.number}</td>
-          <td >{this.props.content.file}</td>
-          <td >{this.props.content.problema}</td>
+          <td className="td">{this.props.number}</td>
+          <td className="td">{this.props.content.file}</td>
+          <td className="td">{this.props.content.problema}</td>
         </tr>
         )
     }

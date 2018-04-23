@@ -1,7 +1,7 @@
 .label {
     margin-left: 50px;
     font-family: Verdana, Geneva, sans-serif;
-    font-size: 20px;
+    font-size: 18px;
     letter-spacing: -1px;
     word-spacing: 2px;
     color: #242424;
@@ -13,13 +13,27 @@
 }
 
 .label-carga{
-    margin-left: 50px;
+    margin-left: 0px;
     font-family: Verdana, Geneva, sans-serif;
-    font-size: 20px;
+    font-size: 18px;
     letter-spacing: -1px;
     word-spacing: 2px;
     color: #242424;
-    font-weight: normal;
+    font-weight: bold;
+    text-decoration: none;
+    font-style: normal;
+    font-variant: normal;
+    text-transform: none;
+}
+
+.label-number{
+    margin-left: 5px;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 45px;
+    letter-spacing: -1px;
+    word-spacing: 2px;
+    color: #242424;
+    font-weight: bold;
     text-decoration: none;
     font-style: normal;
     font-variant: normal;

@@ -13,7 +13,7 @@
     color: #000000;
     font-size: 16px;
     padding: 7px 15px 10px 19px;
-    border: solid #1f628d 2px;
+    border: solid #d3d3d3 2px;
     text-decoration: none;
     cursor: pointer;
   }
@@ -26,7 +26,6 @@
   }
 
   .myButton2 {
-    margin-left: 100px;
     background: #ffffff;
     background-image: -webkit-linear-gradient(top, #ffffff, #ffffff);
     background-image: -moz-linear-gradient(top, #ffffff, #ffffff);
@@ -40,7 +39,7 @@
     color: #000000;
     font-size: 16px;
     padding: 7px 15px 10px 19px;
-    border: solid #1f628d 2px;
+    border: solid #36b93d 2px;
     text-decoration: none;
     cursor: pointer;
   }
@@ -59,7 +58,7 @@
     color: #000000;
     font-size: 16px;
     padding: 7px 15px 10px 19px;
-    border: solid #1f628d 2px;
+    border: solid #36b93d 2px;
     text-decoration: none;
     cursor: pointer;
   }
