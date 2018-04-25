@@ -4,6 +4,7 @@ import TableHeader from './Table-Header';
 import ResultadoList from './Resultado-list';
 import { Line, Circle } from 'rc-progress';
 import '../style/style.css';
+import '../style/style2.css';
 import '../style/table.css';
 import '../style/button.css';
 import '../style/fileInput.css';
@@ -25,7 +26,8 @@ class App extends React.Component {
             archivo: null,
             total_inserciones: 0,
             good_files: null,
-            bad_files: null
+            bad_files: null,
+            respuesta: 0
         };
         this.handleChange = this.handleChange.bind(this);
         //this.handleFileChange = this.handleFileChange.bind(this);
@@ -48,39 +50,45 @@ class App extends React.Component {
         e.preventDefault();
         var data = new FormData();
         data.append('file', this.state.file);
-        data.append('tipo', this.state.value);
-        data.append('name', this.state.usuario);
+        data.append('tipo', 'zip');
+        data.append('name', 'Ccopa');
         console.log(this.state.file);
 
         let sentData = {
             method: 'POST',
-            mode: 'no-cors',
+
             body: data
         };
-        // fetch('http://18.216.135.31:8080/recaudaciones/upload/', sentData)
-        // .then(response => {
-        //     response.json()
-        //         .then((json) => this.setState({
-        //             resultado: json
-        //         })
-        //         );
 
+        fetch('http://localhost:8000/recaudaciones/upload/', sentData)
+            .then(response => {
+                response.json()
+                    .then((json) => this.setState({
+                        archivo: json['file'],
+                        total_inserciones: json['total_inserciones'],
+                        good_files: json['good_files'],
+                        bad_files: json['bad_files'],
+                        select: true
+                    })
+                    );
+            })
+            .catch(error => {
+                console.error(error)
+            });
+
+        console.log(this.state.respuesta);
+
+        // alert(this.state.usuario);
+        // console.log(this.state.value);
+        // console.log(this.state.file);
+
+        // this.setState({
+        //     archivo: prueba.file,
+        //     total_inserciones: prueba.total_inserciones,
+        //     good_files: prueba.good_files,
+        //     bad_files: prueba.bad_files,
+        //     select: true
         // })
-        // .catch(error => {
-        //     console.error(error)
-        // });
-
-        alert(this.state.usuario);
-        console.log(this.state.value);
-        console.log(this.state.file);
-
-        this.setState({
-            archivo: prueba.file,
-            total_inserciones: prueba.total_inserciones,
-            good_files: prueba.good_files,
-            bad_files: prueba.bad_files,
-            select: true
-        })
     }
 
     handleFileChange(e) {
@@ -133,7 +141,7 @@ class App extends React.Component {
                         <label className="label">
                             Usuario:
                             <input
-                                className="input"
+                                className="input input_usuario"
                                 type="text"
                                 value={this.state.usuario}
                                 onChange={(e) => { this.setState({ usuario: e.target.value }) }}

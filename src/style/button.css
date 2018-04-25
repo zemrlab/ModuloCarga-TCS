@@ -1,5 +1,5 @@
 .myButton {
-    margin-left: 40px;
+    margin-left: 20px;
     background: #ffffff;
     background-image: -webkit-linear-gradient(top, #ffffff, #ffffff);
     background-image: -moz-linear-gradient(top, #ffffff, #ffffff);
@@ -8,11 +8,11 @@
     background-image: linear-gradient(to bottom, #ffffff, #ffffff);
     -webkit-border-radius: 6;
     -moz-border-radius: 6;
-    border-radius: 6px;
+    border-radius: 10px;
     font-family: Arial;
     color: #000000;
     font-size: 16px;
-    padding: 7px 15px 10px 19px;
+    padding: 7px 20px 7px 20px;
     border: solid #d3d3d3 2px;
     text-decoration: none;
     cursor: pointer;
@@ -23,6 +23,10 @@
   }
   .myButton:disabled {
     cursor: default;
+  }
+
+  .myButton:focus{
+    outline: none;
   }
 
   .myButton2 {
@@ -62,3 +66,9 @@
     text-decoration: none;
     cursor: pointer;
   }
+
+  /*@media (max-width:685px) {
+    .myButton{
+      
+    }
+}*/
