@@ -4,7 +4,6 @@ import TableHeader from './Table-Header';
 import ResultadoList from './Resultado-list';
 import { Line, Circle } from 'rc-progress';
 import '../style/style.css';
-import '../style/style2.css';
 import '../style/table.css';
 import '../style/button.css';
 import '../style/fileInput.css';
@@ -30,33 +29,18 @@ class App extends React.Component {
             respuesta: 0
         };
         this.handleChange = this.handleChange.bind(this);
-        //this.handleFileChange = this.handleFileChange.bind(this);
     }
-
-    // componentDidMount() {
-    //     var x = document.getElementById("showBar");
-    //     var y = document.getElementById("showResultado");
-    //     x.style.display = "none"
-    //     y.style.display = "none"
-    // }
-
-    // componentDidUpdate(prevProps, prevState) {
-    //     if (prevState.mostrarBar !== this.state.mostrarBar) {
-    //         var intervalId = setInterval(this.changeState, 1);
-    //     }
-    // };
 
     handleSubmit = (e) => {
         e.preventDefault();
         var data = new FormData();
         data.append('file', this.state.file);
-        data.append('tipo', 'zip');
-        data.append('name', 'Ccopa');
+        data.append('tipo', this.state.value);
+        data.append('name', this.state.usuario);
         console.log(this.state.file);
 
         let sentData = {
             method: 'POST',
-
             body: data
         };
 
@@ -77,18 +61,6 @@ class App extends React.Component {
             });
 
         console.log(this.state.respuesta);
-
-        // alert(this.state.usuario);
-        // console.log(this.state.value);
-        // console.log(this.state.file);
-
-        // this.setState({
-        //     archivo: prueba.file,
-        //     total_inserciones: prueba.total_inserciones,
-        //     good_files: prueba.good_files,
-        //     bad_files: prueba.bad_files,
-        //     select: true
-        // })
     }
 
     handleFileChange(e) {
@@ -107,29 +79,7 @@ class App extends React.Component {
 
     handleChange(event) {
         this.setState({ usuario: event.target.value2 });
-        //alert(this.state.usuario);
     }
-
-    // changeState() {
-    //     const colorMap = ['#333745', '#85D262', '#FE8C6A'];
-    //     let newPercent = this.state.percent + 1;
-
-    //     if (!this.state.respuesta) {
-    //         this.setState({
-    //             percent: newPercent,
-    //             color: colorMap[0]
-    //         });
-    //     }else{
-    //         newPercent = 100;
-    //         this.setState({
-    //             percent: newPercent,
-    //             color: colorMap[0]
-    //         });
-    //         var x = document.getElementById("showResultado");
-    //         x.style.display = "block"
-    //         //console.log(JSON.stringify(this.state.respuesta['total_inserciones']));
-    //     }
-    // }
 
     render() {
         const wellStyles = { color: "white" };
