@@ -1,7 +1,6 @@
 import React from 'react';
 import TableHeader from './Table-Header';
 import ResultadoList from './Resultado-list';
-import { Table, ButtonGroup, Button } from 'react-bootstrap';
 
 class TableResults extends React.Component {
     constructor(props) {
@@ -70,14 +69,14 @@ class TableResults extends React.Component {
                             <div className="col-xs-12 col-md-7">
                                 <br/>
                                 <div className="row center-xs">
-                                <button
-                                    className="myButton2"
-                                    onClick={() => this.selectGoodTable()}
-                                >Correctos</button>
-                                <button
-                                    className="myButton3"
-                                    onClick={() => this.selectBadTable()}
-                                >Fallidos</button>
+                                    <button
+                                        className="myButton2"
+                                        onClick={() => this.selectGoodTable()}
+                                    >Correctos</button>
+                                    <button
+                                        className="myButton3"
+                                        onClick={() => this.selectBadTable()}
+                                    >Fallidos</button>
                                 </div>
                                 <br/><br/>
                                 <table className="table">

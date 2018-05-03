@@ -1,15 +1,10 @@
 import React from 'react';
-import AppProgressBar from "./AppProgressBar";
-import TableHeader from './Table-Header';
-import ResultadoList from './Resultado-list';
-import { Line, Circle } from 'rc-progress';
 import '../style/style.css';
 import '../style/table.css';
 import '../style/button.css';
 import '../style/fileInput.css';
 import '../style/label.css';
 import '../flexboxgrid.min.css';
-import prueba from './prueba';
 import TableResults from './TableResults';
 import { PageHeader } from 'react-bootstrap';
 
@@ -26,7 +21,7 @@ class App extends React.Component {
             total_inserciones: 0,
             good_files: null,
             bad_files: null,
-            respuesta: 0
+            uniqueId: 0
         };
         this.handleChange = this.handleChange.bind(this);
     }
@@ -37,14 +32,16 @@ class App extends React.Component {
         data.append('file', this.state.file);
         data.append('tipo', this.state.value);
         data.append('name', this.state.usuario);
+
         console.log(this.state.file);
+        this.setState((prevState) => ({ uniqueId: prevState.uniqueId + 1}))
 
         let sentData = {
             method: 'POST',
             body: data
         };
 
-        fetch('http://localhost:8000/recaudaciones/upload/', sentData)
+        fetch('http://104.236.94.13/recaudaciones/upload/', sentData)
             .then(response => {
                 response.json()
                     .then((json) => this.setState({
@@ -59,8 +56,6 @@ class App extends React.Component {
             .catch(error => {
                 console.error(error)
             });
-
-        console.log(this.state.respuesta);
     }
 
     handleFileChange(e) {
@@ -112,19 +107,21 @@ class App extends React.Component {
                             </select>
                         </label>
                         <button
-                            disabled={this.state.excelUrl.trim() == ''}
+                            disabled={this.state.excelUrl.trim() === ''}
                             className="myButton"
                             type="submit"
                             onClick={(e) => this.handleSubmit(e)}>Subir Archivo</button>
                     </form>
                     <hr />
-                    <TableResults
-                        archivo={this.state.archivo}
-                        total_inserciones={this.state.total_inserciones}
-                        good_files={this.state.good_files}
-                        bad_files={this.state.bad_files}
-                        select={this.state.select}
-                    />
+                    <div key={this.state.uniqueId}>
+                        <TableResults
+                            archivo={this.state.archivo}
+                            total_inserciones={this.state.total_inserciones}
+                            good_files={this.state.good_files}
+                            bad_files={this.state.bad_files}
+                            select={this.state.select}
+                        />
+                    </div>
                 </div>
             </div>
         )
