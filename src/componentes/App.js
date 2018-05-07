@@ -21,13 +21,18 @@ class App extends React.Component {
             total_inserciones: 0,
             good_files: null,
             bad_files: null,
-            uniqueId: 0
+            uniqueId: 0,
+            status_excel: ""
         };
-        this.handleChange = this.handleChange.bind(this);
     }
 
     handleSubmit = (e) => {
         e.preventDefault();
+
+        this.setState({
+            select: true
+        });
+
         var data = new FormData();
         data.append('file', this.state.file);
         data.append('tipo', this.state.value);
@@ -43,15 +48,24 @@ class App extends React.Component {
 
         fetch('http://104.236.94.13/recaudaciones/upload/', sentData)
             .then(response => {
-                response.json()
+                if(this.state.value === "zip"){
+                    response.json()
                     .then((json) => this.setState({
                         archivo: json['file'],
                         total_inserciones: json['total_inserciones'],
                         good_files: json['good_files'],
-                        bad_files: json['bad_files'],
-                        select: true
+                        bad_files: json['bad_files']
                     })
                     );
+                }else{
+                    response.json()
+                    .then((json) => this.setState({
+                        archivo: json['file'],
+                        status_excel: json['status'],
+                        total_inserciones: json['nro_registros']
+                    })
+                    );
+                }
             })
             .catch(error => {
                 console.error(error)
@@ -70,10 +84,6 @@ class App extends React.Component {
             });
         }
         reader.readAsDataURL(file)
-    }
-
-    handleChange(event) {
-        this.setState({ usuario: event.target.value2 });
     }
 
     render() {
@@ -119,7 +129,9 @@ class App extends React.Component {
                             total_inserciones={this.state.total_inserciones}
                             good_files={this.state.good_files}
                             bad_files={this.state.bad_files}
+                            status={this.state.status_excel}
                             select={this.state.select}
+                            tipo={this.state.value}
                         />
                     </div>
                 </div>
