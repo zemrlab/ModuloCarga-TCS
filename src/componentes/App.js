@@ -39,32 +39,36 @@ class App extends React.Component {
         data.append('name', this.state.usuario);
 
         console.log(this.state.file);
-        this.setState((prevState) => ({ uniqueId: prevState.uniqueId + 1}))
+        this.setState((prevState) => ({ uniqueId: prevState.uniqueId + 1 }))
 
         let sentData = {
             method: 'POST',
+            //mode: 'no-cors',
             body: data
         };
 
-        fetch('http://104.236.94.13/recaudaciones/upload/', sentData)
+        fetch('http://167.99.111.240/recaudaciones/upload/', sentData)
             .then(response => {
-                if(this.state.value === "zip"){
+                if (this.state.value === "zip") {
                     response.json()
-                    .then((json) => this.setState({
-                        archivo: json['file'],
-                        total_inserciones: json['total_inserciones'],
-                        good_files: json['good_files'],
-                        bad_files: json['bad_files']
-                    })
-                    );
-                }else{
+                        .then((json) => this.setState({
+                            archivo: json['file'],
+                            total_inserciones: json['total_inserciones'],
+                            good_files: json['good_files'],
+                            bad_files: json['bad_files'],
+                            status_excel: "Ha sido subido en formato '.xls'"
+                        })
+                        );
+                } else {
                     response.json()
-                    .then((json) => this.setState({
-                        archivo: json['file'],
-                        status_excel: json['status'],
-                        total_inserciones: json['nro_registros']
-                    })
-                    );
+                        .then((json) => this.setState({
+                            archivo: json['file'],
+                            status_excel: json['status'],
+                            total_inserciones: json['nro_registros'],
+                            good_files: [],
+                            bad_files: []
+                        })
+                        );
                 }
             })
             .catch(error => {
@@ -74,6 +78,15 @@ class App extends React.Component {
 
     handleFileChange(e) {
         e.preventDefault();
+
+        this.setState({
+            archivo: null,
+            total_inserciones: 0,
+            good_files: [],
+            bad_files: [],
+            status_excel: "",
+            select: false
+        })
 
         let reader = new FileReader();
         let file = e.target.files[0];

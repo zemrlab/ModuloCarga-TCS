@@ -1,5 +1,5 @@
 h1 {
-    background-color: #36b93d;
+    background-color: #154169;
     color: white;
     padding: 40px;
     text-align: center;
@@ -38,7 +38,7 @@ h1 {
     text-align: center;/*Alineamos el texto al centro ---th por defecto esta alineado al centro*/
     /* vertical-align: bottom; Alineamos el texto verticalmente hacia abajo*/
     padding: 1px;
-    background-color:#36b93d;
+    background-color:#154169;
     color: white;
     border: 3px solid WHITE;
     /* border-radius: 15px; */
