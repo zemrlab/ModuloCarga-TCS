@@ -17,6 +17,7 @@ class App extends React.Component {
             select: false,
             usuario: '',
             value: 'a',
+            formato: 'a',
             archivo: null,
             total_inserciones: 0,
             good_files: null,
@@ -37,6 +38,7 @@ class App extends React.Component {
         data.append('file', this.state.file);
         data.append('tipo', this.state.value);
         data.append('name', this.state.usuario);
+        data.append('formato', this.state.formato);
 
         console.log(this.state.file);
         this.setState((prevState) => ({ uniqueId: prevState.uniqueId + 1 }))
@@ -127,6 +129,17 @@ class App extends React.Component {
                                 <option value="a" disabled>Tipo de Archivo</option>
                                 <option value="excel">Excel (.xls)</option>
                                 <option value="zip">Zip (.zip)</option>
+                            </select>
+                        </label>
+                        <label>
+                            <select
+                                className="input"
+                                value={this.state.formato}
+                                onChange={(e) => { this.setState({ formato: e.target.value }) }}
+                            >
+                                <option value="a" disabled>Formato</option>
+                                <option value="1">Antes del 2010</option>
+                                <option value="2">Despues del 2010</option>
                             </select>
                         </label>
                         <button
