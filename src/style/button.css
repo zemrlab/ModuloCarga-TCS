@@ -23,6 +23,8 @@
   }
   .myButton:disabled {
     cursor: default;
+    background: #bebebe;
+    color: #ffffff;
   }
 
   .myButton:focus{

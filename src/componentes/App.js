@@ -100,7 +100,7 @@ class App extends React.Component {
         }
         reader.readAsDataURL(file)
     }
-
+    
     render() {
         const wellStyles = { color: "white" };
         return (
@@ -119,6 +119,7 @@ class App extends React.Component {
                         </label>
                         <input className="fileInput"
                             type="file"
+                            accept=".xls, .zip"
                             onChange={(e) => this.handleFileChange(e)} />
                         <label>
                             <select
@@ -138,12 +139,12 @@ class App extends React.Component {
                                 onChange={(e) => { this.setState({ formato: e.target.value }) }}
                             >
                                 <option value="a" disabled>Formato</option>
-                                <option value="1">Antes del 2010</option>
+                                <option value="1">Del 2010 o antes</option>
                                 <option value="2">Despues del 2010</option>
                             </select>
                         </label>
                         <button
-                            disabled={this.state.excelUrl.trim() === ''}
+                            disabled={this.state.excelUrl.trim() === '' || this.state.value === 'a' || this.state.formato === 'a' || this.state.usuario.trim() === ''}
                             className="myButton"
                             type="submit"
                             onClick={(e) => this.handleSubmit(e)}>Subir Archivo</button>
