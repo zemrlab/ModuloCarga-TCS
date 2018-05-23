@@ -16,8 +16,8 @@ class App extends React.Component {
             excelUrl: '',
             select: false,
             usuario: '',
-            value: 'a',
-            formato: 'a',
+            value: '',
+            formato: '',
             archivo: null,
             total_inserciones: 0,
             good_files: null,
@@ -74,7 +74,8 @@ class App extends React.Component {
                 }
             })
             .catch(error => {
-                console.error(error)
+                //alert(error);
+                console.error(error);
             });
     }
 
@@ -92,62 +93,75 @@ class App extends React.Component {
 
         let reader = new FileReader();
         let file = e.target.files[0];
+        let tipoFile = '';
+        if(file.name.endsWith(".xls")){
+            tipoFile = 'xls'
+        }else if(file.name.endsWith(".zip")){
+            tipoFile = 'zip'
+        }
         reader.onloadend = () => {
             this.setState({
                 file: file,
                 excelUrl: reader.result,
+                value: tipoFile
             });
         }
         reader.readAsDataURL(file)
     }
-    
+
     render() {
         const wellStyles = { color: "white" };
         return (
             <div>
                 <PageHeader style={wellStyles}>Módulo Carga de Datos</PageHeader>
                 <div className="addExcel" >
-                    <form onSubmit={(e) => this.handleSubmit(e)}>
+
+                    <form 
+                        //onSubmit={(e) => this.handleSubmit(e)}
+                    >
                         <label className="label">
                             Usuario:
-                            <input
-                                className="input input_usuario"
-                                type="text"
-                                value={this.state.usuario}
-                                onChange={(e) => { this.setState({ usuario: e.target.value }) }}
-                            />
                         </label>
-                        <input className="fileInput"
-                            type="file"
+                        <input 
+                            className="input input_usuario"
+                            pattern=".*[^ ].*" 
+                            type="text" 
+                            required
+                            value={this.state.usuario}
+                            onChange={(e) => { this.setState({ usuario: e.target.value.trim() }) }} 
+                        />
+                        <input 
+                            className="fileInput"
+                            pattern=".*[^ ].*" 
+                            type="file" 
+                            required
                             accept=".xls, .zip"
-                            onChange={(e) => this.handleFileChange(e)} />
-                        <label>
-                            <select
-                                className="input"
-                                value={this.state.value}
-                                onChange={(e) => { this.setState({ value: e.target.value }) }}
-                            >
-                                <option value="a" disabled>Tipo de Archivo</option>
-                                <option value="excel">Excel (.xls)</option>
-                                <option value="zip">Zip (.zip)</option>
-                            </select>
+                            onChange={(e) => this.handleFileChange(e)} 
+                        />
+                        <label className="input">
+                            Tipo de Archivo: {this.state.value}
                         </label>
-                        <label>
-                            <select
-                                className="input"
-                                value={this.state.formato}
-                                onChange={(e) => { this.setState({ formato: e.target.value }) }}
-                            >
-                                <option value="a" disabled>Formato</option>
-                                <option value="1">Del 2010 o antes</option>
-                                <option value="2">Despues del 2010</option>
-                            </select>
-                        </label>
-                        <button
-                            disabled={this.state.excelUrl.trim() === '' || this.state.value === 'a' || this.state.formato === 'a' || this.state.usuario.trim() === ''}
-                            className="myButton"
-                            type="submit"
-                            onClick={(e) => this.handleSubmit(e)}>Subir Archivo</button>
+                        <select 
+                            className="input" 
+                            required
+                            value={this.state.formato}
+                            onChange={(e) => { this.setState({ formato: e.target.value }) }}
+                        >
+                            <option value="" selected data-default>Formato</option>
+                            <option value="1">Del 2010 o antes</option>
+                            <option value="2">Despues del 2010</option>
+                        </select>
+                        <input 
+                            className="myButton" 
+                            type="submit" 
+                            onClick={(e) => {
+                                if(this.state.excelUrl.trim() === '' || this.state.value === '' || this.state.formato === '' || this.state.usuario === ''){
+                                    console.log('Complete los campos.');
+                                }else{
+                                    this.handleSubmit(e);
+                                }
+                            }}
+                        />
                     </form>
                     <hr />
                     <div key={this.state.uniqueId}>
