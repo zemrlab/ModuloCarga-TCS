@@ -49,7 +49,8 @@ class App extends React.Component {
             body: data
         };
 
-        fetch('http://167.99.111.240/recaudaciones/upload/', sentData)
+        //fetch('http://167.99.111.240/recaudaciones/upload/', sentData)
+        fetch('http://localhost:8000/recaudaciones/upload/', sentData)
             .then(response => {
                 if (this.state.value === "zip") {
                     response.json()
@@ -148,8 +149,8 @@ class App extends React.Component {
                             onChange={(e) => { this.setState({ formato: e.target.value }) }}
                         >
                             <option value="" selected data-default>Formato</option>
-                            <option value="1">Del 2010 o antes</option>
-                            <option value="2">Despues del 2010</option>
+                            <option value="1">Despues del 2010</option>
+                            <option value="2">Del 2010 o antes</option>
                         </select>
                         <input 
                             className="myButton" 
