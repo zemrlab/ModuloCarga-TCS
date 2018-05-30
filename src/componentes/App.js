@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import '../style/style.css';
 import '../style/table.css';
 import '../style/button.css';
@@ -6,6 +6,8 @@ import '../style/fileInput.css';
 import '../style/label.css';
 import '../flexboxgrid.min.css';
 import TableResults from './TableResults';
+import PopUp from './PopUp';
+import HelpModal from './HelpModal';
 import { PageHeader } from 'react-bootstrap';
 
 class App extends React.Component {
@@ -23,7 +25,8 @@ class App extends React.Component {
             good_files: null,
             bad_files: null,
             uniqueId: 0,
-            status_excel: ""
+            status_excel: "",
+            help: false
         };
     }
 
@@ -49,8 +52,7 @@ class App extends React.Component {
             body: data
         };
 
-        //fetch('http://167.99.111.240/recaudaciones/upload/', sentData)
-        fetch('http://localhost:8000/recaudaciones/upload/', sentData)
+        fetch('http://167.99.111.240/recaudaciones/upload/', sentData)
             .then(response => {
                 if (this.state.value === "zip") {
                     response.json()
@@ -75,7 +77,7 @@ class App extends React.Component {
                 }
             })
             .catch(error => {
-                //alert(error);
+                alert(error);
                 console.error(error);
             });
     }
@@ -96,7 +98,7 @@ class App extends React.Component {
         let file = e.target.files[0];
         let tipoFile = '';
         if(file.name.endsWith(".xls")){
-            tipoFile = 'xls'
+            tipoFile = 'excel'
         }else if(file.name.endsWith(".zip")){
             tipoFile = 'zip'
         }
@@ -108,6 +110,10 @@ class App extends React.Component {
             });
         }
         reader.readAsDataURL(file)
+    }
+
+    handClearSelectedOption = () => {
+        this.setState(() => ({ help: false }));
     }
 
     render() {
@@ -149,9 +155,10 @@ class App extends React.Component {
                             onChange={(e) => { this.setState({ formato: e.target.value }) }}
                         >
                             <option value="" selected data-default>Formato</option>
-                            <option value="1">Despues del 2010</option>
-                            <option value="2">Del 2010 o antes</option>
+                            <option value="1">(1) Despues del 2010</option>
+                            <option value="2">(2) Del 2010 o antes</option>
                         </select>
+                        <input className="myButton" type="button" onClick={(e) => { this.setState({ help: true }) }} value="?"/>
                         <input 
                             className="myButton" 
                             type="submit" 
@@ -164,6 +171,10 @@ class App extends React.Component {
                             }}
                         />
                     </form>
+                    <HelpModal 
+                        help={this.state.help}
+                        handClearSelectedOption={this.handClearSelectedOption}
+                    />
                     <hr />
                     <div key={this.state.uniqueId}>
                         <TableResults
