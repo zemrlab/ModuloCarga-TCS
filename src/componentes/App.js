@@ -6,9 +6,10 @@ import '../style/fileInput.css';
 import '../style/label.css';
 import '../flexboxgrid.min.css';
 import TableResults from './TableResults';
-import PopUp from './PopUp';
 import HelpModal from './HelpModal';
-import { PageHeader } from 'react-bootstrap';
+
+//prueba
+//import prueba from './prueba';
 
 class App extends React.Component {
     constructor(props) {
@@ -17,7 +18,7 @@ class App extends React.Component {
             file: '',
             excelUrl: '',
             select: false,
-            usuario: '',
+            usuario: 'invitado', //falta capturar el nombre del usuario
             value: '',
             formato: '',
             archivo: null,
@@ -52,7 +53,7 @@ class App extends React.Component {
             body: data
         };
 
-        fetch('http://167.99.111.240/recaudaciones/upload/', sentData)
+        fetch('http://138.197.221.57:5000/upload', sentData)
             .then(response => {
                 if (this.state.value === "zip") {
                     response.json()
@@ -82,6 +83,18 @@ class App extends React.Component {
             });
     }
 
+    /*
+    componentDidMount() {
+        this.setState({
+            value: 'zip',
+            archivo: prueba.file,
+            status_excel: 'status default',
+            total_inserciones: prueba.total_inserciones,
+            good_files: prueba.good_files,
+            bad_files: prueba.bad_files
+        })
+    } */
+
     handleFileChange(e) {
         e.preventDefault();
 
@@ -94,88 +107,130 @@ class App extends React.Component {
             select: false
         })
 
-        let reader = new FileReader();
-        let file = e.target.files[0];
-        let tipoFile = '';
-        if(file.name.endsWith(".xls")){
-            tipoFile = 'excel'
-        }else if(file.name.endsWith(".zip")){
-            tipoFile = 'zip'
+        try {
+            let reader = new FileReader();
+            let file = e.target.files[0];
+            let tipoFile = '';
+            if (file.name.endsWith(".xls")) {
+                tipoFile = 'excel'
+            } else if (file.name.endsWith(".zip")) {
+                tipoFile = 'zip'
+            }
+            reader.onloadend = () => {
+                this.setState({
+                    file: file,
+                    excelUrl: reader.result,
+                    value: tipoFile
+                });
+            }
+            reader.readAsDataURL(file)
+        } catch (e) {
+            console.error(e);
         }
-        reader.onloadend = () => {
-            this.setState({
-                file: file,
-                excelUrl: reader.result,
-                value: tipoFile
-            });
-        }
-        reader.readAsDataURL(file)
     }
 
     handClearSelectedOption = () => {
         this.setState(() => ({ help: false }));
     }
 
+    handleClick = (e) => {
+        e.preventDefault();
+        console.log('The link was clicked.');
+    };
+
     render() {
-        const wellStyles = { color: "white" };
         return (
             <div>
-                <PageHeader style={wellStyles}>Módulo Carga de Datos</PageHeader>
-                <div className="addExcel" >
-
-                    <form 
-                        //onSubmit={(e) => this.handleSubmit(e)}
-                    >
-                        <label className="label">
-                            Usuario:
+                <div className="row">
+                    <div className="col-xs-10">
+                        <h1 className="h1">Módulo Carga de Datos</h1>
+                    </div>
+                    <div className="col-xs-2">
+                        <a href="http://siga-fisi.herokuapp.com/dashboard" onClick={() => { this.handleClick }}>
+                            <img className="img"
+                                src="http://www.clker.com/cliparts/R/L/N/Y/N/e/house-logo-hi.png"
+                                height="60" width="60"
+                                align="right" />
+                        </a>
+                    </div>
+                </div>
+                <div className="vista" >
+                    <label className="label">
+                        USUARIO LOGEADO
                         </label>
-                        <input 
-                            className="input input_usuario"
-                            pattern=".*[^ ].*" 
-                            type="text" 
-                            required
-                            value={this.state.usuario}
-                            onChange={(e) => { this.setState({ usuario: e.target.value.trim() }) }} 
-                        />
-                        <input 
-                            className="fileInput"
-                            pattern=".*[^ ].*" 
-                            type="file" 
-                            required
-                            accept=".xls, .zip"
-                            onChange={(e) => this.handleFileChange(e)} 
-                        />
-                        <label className="input">
-                            Tipo de Archivo: {this.state.value}
-                        </label>
-                        <select 
-                            className="input" 
-                            required
-                            value={this.state.formato}
-                            onChange={(e) => { this.setState({ formato: e.target.value }) }}
-                        >
-                            <option value="" selected data-default>Formato</option>
-                            <option value="1">(1) Despues del 2010</option>
-                            <option value="2">(2) Del 2010 o antes</option>
-                        </select>
-                        <input className="myButton" type="button" onClick={(e) => { this.setState({ help: true }) }} value="?"/>
-                        <input 
-                            className="myButton" 
-                            type="submit" 
-                            onClick={(e) => {
-                                if(this.state.excelUrl.trim() === '' || this.state.value === '' || this.state.formato === '' || this.state.usuario === ''){
-                                    console.log('Complete los campos.');
-                                }else{
-                                    this.handleSubmit(e);
-                                }
-                            }}
-                        />
+                    <form>
+                        <div className="row">
+                            <div className="col-xs-12 col-md-6">
+                                <input
+                                    type="file"
+                                    className="fileInput"
+                                    pattern=".*[^ ].*"
+                                    required
+                                    accept=".xls, .zip"
+                                    onChange={(e) => this.handleFileChange(e)}
+                                />
+                            </div>
+                            <div className="col-xs-4 col-md-2">
+                                <input className="labelinput"
+                                    value={this.state.value}
+                                    disabled
+                                />
+                            </div>
+                            <div className="col-xs-6 col-md-3">
+                                <select
+                                    className="input"
+                                    placeholder="Seleccione formato"
+                                    required
+                                    value={this.state.formato}
+                                    onChange={(e) => { this.setState({ formato: e.target.value }) }}
+                                >
+                                    <option value="" disabled>Tipo de Archivo</option>
+                                    <option value="1">(1) Despues del 2010</option>
+                                    <option value="2">(2) Del 2010 o antes</option>
+                                </select>
+                            </div>
+                            <div className="col-xs-2 col-md-1">
+                                <input className="myButton" type="button"
+                                    onClick={(e) => { this.setState({ help: true }) }}
+                                    value="?" />
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-xs-0 col-md-9">
+                            </div>
+                            <div className="col-xs-12 col-md-3">
+                                <input
+                                    className="myButton"
+                                    type="submit"
+                                    value="CARGAR"
+                                    onClick={(e) => {
+                                        if (this.state.excelUrl.trim() === '' || this.state.value === '' || this.state.formato === '') {
+                                            console.log('Complete los campos.');
+                                        } else {
+                                            this.handleSubmit(e);
+                                        }
+                                    }}
+                                />
+                            </div>
+                        </div>
                     </form>
-                    <HelpModal 
+                    {/* <div className="fileUpload">
+                        <input type="button" className="custom-para" value="Seleccionar Archivo" />
+                        <input id="uploadBtn" type="file" className="upload"
+                            onChange={(e) => {
+                                let reader = new FileReader();
+                                let file = e.target.files[0];
+                                document.getElementById("uploadFile").value = file.name;
+                            }} />
+                    </div>
+                    <input id="uploadFile" placeholder="0 files selected" disabled="disabled" /> */}
+                    <HelpModal
                         help={this.state.help}
                         handClearSelectedOption={this.handClearSelectedOption}
                     />
+                    <br />
                     <hr />
+                    <br />
                     <div key={this.state.uniqueId}>
                         <TableResults
                             archivo={this.state.archivo}

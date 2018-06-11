@@ -67,7 +67,7 @@ class TableResults extends React.Component {
                                     <hr />
                                     <p className="label-carga">Archivo: {this.props.archivo}</p>
                                 </div>
-                                <div className="col-xs-12 col-md-7">
+                                <div className="col-xs-12 col-md-8">
                                     <br />
                                     <div className="row center-xs">
                                         <button
