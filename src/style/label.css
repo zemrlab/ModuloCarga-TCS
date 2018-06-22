@@ -1,15 +1,12 @@
 .label {
-    margin-left: 50px;
     font-family: Verdana, Geneva, sans-serif;
-    font-size: 18px;
+    font-size: 26px;
     letter-spacing: -1px;
     word-spacing: 2px;
-    color: #242424;
+    color: #1a5083;
     font-weight: bold;
-    text-decoration: none;
     font-style: normal;
     font-variant: normal;
-    text-transform: none;
 }
 
 .label-carga{
@@ -38,6 +35,17 @@
     font-style: normal;
     font-variant: normal;
     text-transform: none;
+}
+
+.labelinput{
+    border-radius: 12px;
+    border: 2px solid #d3d3d3;
+    padding: 8px;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 18px;
+    color: #1a5083;
+    width: 90%;
+    margin-top: 20px;
 }
 
 
