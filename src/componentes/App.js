@@ -18,7 +18,7 @@ class App extends React.Component {
             file: '',
             excelUrl: '',
             select: false,
-            usuario: 'invitado', //falta capturar el nombre del usuario
+            usuario: 'INVITADO', //default
             value: '',
             formato: '',
             archivo: null,
@@ -82,9 +82,24 @@ class App extends React.Component {
                 console.error(error);
             });
     }
-
-    /*
+    
     componentDidMount() {
+        //captura del nombre de llegada
+        var name = "nombre";
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(window.location.search);
+        var usuario = results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        //muestra en consola
+        console.log(usuario);
+        //modificamos el usuario
+        if( usuario !== ""){
+            this.setState({
+                usuario: usuario
+            })
+        }
+
+        /*
         this.setState({
             value: 'zip',
             archivo: prueba.file,
@@ -92,8 +107,8 @@ class App extends React.Component {
             total_inserciones: prueba.total_inserciones,
             good_files: prueba.good_files,
             bad_files: prueba.bad_files
-        })
-    } */
+        }) */
+    } 
 
     handleFileChange(e) {
         e.preventDefault();
@@ -149,6 +164,7 @@ class App extends React.Component {
                         <a href="http://siga-fisi.herokuapp.com/dashboard" onClick={() => { this.handleClick }}>
                             <img className="img"
                                 src="http://www.clker.com/cliparts/R/L/N/Y/N/e/house-logo-hi.png"
+                                alt="HOME"
                                 height="60" width="60"
                                 align="right" />
                         </a>
@@ -156,7 +172,7 @@ class App extends React.Component {
                 </div>
                 <div className="vista" >
                     <label className="label">
-                        USUARIO LOGEADO
+                        USUARIO: {this.state.usuario}
                         </label>
                     <form>
                         <div className="row">
@@ -214,16 +230,7 @@ class App extends React.Component {
                             </div>
                         </div>
                     </form>
-                    {/* <div className="fileUpload">
-                        <input type="button" className="custom-para" value="Seleccionar Archivo" />
-                        <input id="uploadBtn" type="file" className="upload"
-                            onChange={(e) => {
-                                let reader = new FileReader();
-                                let file = e.target.files[0];
-                                document.getElementById("uploadFile").value = file.name;
-                            }} />
-                    </div>
-                    <input id="uploadFile" placeholder="0 files selected" disabled="disabled" /> */}
+
                     <HelpModal
                         help={this.state.help}
                         handClearSelectedOption={this.handClearSelectedOption}

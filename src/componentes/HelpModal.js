@@ -17,14 +17,14 @@ const HelpModal = (props) => (
             <h4>Formato 1</h4>
         </div>
         <div className="row center-xs">
-            <img src="https://image.ibb.co/gVy0Xd/formato1.png" />
+            <img src="https://image.ibb.co/gVy0Xd/formato1.png" alt="Formato 1 en espera..." />
         </div>
         <hr />
         <div className="row center-xs">
             <h4>Formato 2</h4>
         </div>
         <div className="row center-xs">
-            <img src="https://image.ibb.co/gyLsdJ/formato2.png" />
+            <img src="https://image.ibb.co/gyLsdJ/formato2.png" alt="Formato 2 en espera..." />
         </div>
         <hr />
         <div className="row center-xs">
