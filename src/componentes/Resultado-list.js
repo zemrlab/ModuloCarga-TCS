@@ -13,6 +13,7 @@ class ResultadoList extends React.Component {
               return <ResultadoRow 
                           number={numbers}
                           tipo={this.props.tipo}
+                          subtipo={this.props.subtipo}
                           key={content.file} 
                           content={content} />
             })

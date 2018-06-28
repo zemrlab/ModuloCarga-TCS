@@ -13,12 +13,7 @@
 }
 
 .myButton:hover {
-  background: #3cb0fd;
-  background-image: -webkit-linear-gradient(top, #1a5083, #1a5083);
-  background-image: -moz-linear-gradient(top, #1a5083, #1a5083);
-  background-image: -ms-linear-gradient(top, #1a5083, #1a5083);
-  background-image: -o-linear-gradient(top, #1a5083, #1a5083);
-  background-image: linear-gradient(to bottom, #1a5083, #1a5083);
+  background: #1a5083;
   text-decoration: none;
   cursor: pointer;
 }
@@ -32,13 +27,8 @@
     outline: none;
   }
 
-  .myButton2 {
+  .myButtonLeft {
     background: #ffffff;
-    background-image: -webkit-linear-gradient(top, #ffffff, #ffffff);
-    background-image: -moz-linear-gradient(top, #ffffff, #ffffff);
-    background-image: -ms-linear-gradient(top, #ffffff, #ffffff);
-    background-image: -o-linear-gradient(top, #ffffff, #ffffff);
-    background-image: linear-gradient(to bottom, #ffffff, #ffffff);
     -webkit-border-radius: 6;
     -moz-border-radius: 6;
     border-radius: 6px 0px 0px 6px;
@@ -50,14 +40,27 @@
     text-decoration: none;
     cursor: pointer;
   }
-.myButton3 {
+  .myButtonLeft:hover{
+    background: #eeeeee;
+  }
+
+  .myButtonCenter {
+    background: #ffffff;
+    font-family: Arial;
+    color: #000000;
+    font-size: 16px;
+    padding: 7px 15px 10px 19px;
+    border: solid #154169 2px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .myButtonCenter:hover{
+    background: #eeeeee;
+  }
+
+.myButtonRight {
     margin-left: 0px;
     background: #ffffff;
-    background-image: -webkit-linear-gradient(top, #ffffff, #ffffff);
-    background-image: -moz-linear-gradient(top, #ffffff, #ffffff);
-    background-image: -ms-linear-gradient(top, #ffffff, #ffffff);
-    background-image: -o-linear-gradient(top, #ffffff, #ffffff);
-    background-image: linear-gradient(to bottom, #ffffff, #ffffff);
     -webkit-border-radius: 6;
     -moz-border-radius: 6;
     border-radius: 0px 6px 6px 0px;
@@ -69,7 +72,9 @@
     text-decoration: none;
     cursor: pointer;
   }
-
+  .myButtonRight:hover{
+    background: #eeeeee;
+  }
   /*@media (max-width:685px) {
     .myButton{
       

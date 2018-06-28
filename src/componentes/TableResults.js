@@ -7,6 +7,7 @@ class TableResults extends React.Component {
         super(props);
         this.state = {
             tipo: 'good',
+            subtipo: 'insert',
             listado: []
         }
     }
@@ -22,6 +23,7 @@ class TableResults extends React.Component {
     selectGoodTable() {
         this.setState({
             tipo: 'good',
+            subtipo: 'insert',
             listado: this.props.good_files
         })
     }
@@ -29,6 +31,13 @@ class TableResults extends React.Component {
         this.setState({
             tipo: 'bad',
             listado: this.props.bad_files
+        })
+    }
+    selectDuplexTable() {
+        this.setState({
+            tipo: 'good',
+            subtipo: 'duplex',
+            listado: this.props.good_files
         })
     }
 
@@ -58,10 +67,20 @@ class TableResults extends React.Component {
                                 <div className="col-xs-12 col-md-4">
                                     <form>
                                         <label className="label-carga">
-                                            Total inserciones:
-                                    </label>
+                                            Total registros procesados:
+                                        </label>
                                         <label className="label-number">
-                                            {this.props.total_inserciones}
+                                            {this.props.total_registros_procesados}
+                                        </label>
+                                    </form>
+                                    <form>
+                                        <label className="label-carga">
+                                            - Total registros insertados: {this.props.total_registros_insertados}
+                                        </label>
+                                    </form>
+                                    <form>
+                                        <label className="label-carga">
+                                            - Total registros duplicados: {this.props.total_registros_excluidos}
                                         </label>
                                     </form>
                                     <hr />
@@ -71,11 +90,15 @@ class TableResults extends React.Component {
                                     <br />
                                     <div className="row center-xs">
                                         <button
-                                            className="myButton2"
+                                            className="myButtonLeft"
                                             onClick={() => this.selectGoodTable()}
-                                        >Correctos</button>
+                                        >Insertados</button>
                                         <button
-                                            className="myButton3"
+                                            className="myButtonCenter"
+                                            onClick={() => this.selectDuplexTable()}
+                                        >Duplicados</button>
+                                        <button
+                                            className="myButtonRight"
                                             onClick={() => this.selectBadTable()}
                                         >Fallidos</button>
                                     </div>
@@ -84,6 +107,7 @@ class TableResults extends React.Component {
                                         <TableHeader />
                                         <ResultadoList
                                             tipo={this.state.tipo}
+                                            subtipo={this.state.subtipo}
                                             listado={this.state.listado}
                                         />
                                     </table>
@@ -97,10 +121,20 @@ class TableResults extends React.Component {
                     <div>
                         <form>
                             <label className="label-carga">
-                                Total inserciones:
-                                    </label>
+                                Total registros procesados:
+                                        </label>
                             <label className="label-number">
-                                {this.props.total_inserciones}
+                                {this.props.total_registros_procesados}
+                            </label>
+                        </form>
+                        <form>
+                            <label className="label-carga">
+                                - Total registros insertados: {this.props.total_registros_insertados}
+                            </label>
+                        </form>
+                        <form>
+                            <label className="label-carga">
+                                - Total registros duplicados: {this.props.total_registros_excluidos}
                             </label>
                         </form>
                         <hr />

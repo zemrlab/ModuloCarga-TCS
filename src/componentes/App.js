@@ -9,7 +9,8 @@ import TableResults from './TableResults';
 import HelpModal from './HelpModal';
 
 //prueba
-//import prueba from './prueba';
+import pruebaExcel from './pruebaExcel';
+import pruebaZip from './pruebaZip';
 
 class App extends React.Component {
     constructor(props) {
@@ -22,7 +23,9 @@ class App extends React.Component {
             value: '',
             formato: '',
             archivo: null,
-            total_inserciones: 0,
+            total_registros_insertados: 0,
+            total_registros_procesados: 0,
+            total_registros_excluidos: 0,
             good_files: null,
             bad_files: null,
             uniqueId: 0,
@@ -58,21 +61,22 @@ class App extends React.Component {
                 if (this.state.value === "zip") {
                     response.json()
                         .then((json) => this.setState({
-                            archivo: json['file'],
-                            total_inserciones: json['total_inserciones'],
-                            good_files: json['good_files'],
-                            bad_files: json['bad_files'],
-                            status_excel: "Ha sido subido en formato '.xls'"
+                            archivo: json.file,
+                            total_registros_insertados: json.good_files.total_registros_insertados,
+                            total_registros_procesados: json.good_files.total_registros_procesados,
+                            total_registros_excluidos: json.good_files.total_registros_excluidos,
+                            good_files: json.good_files.lista_detalle,
+                            bad_files: json.bad_files
                         })
                         );
                 } else {
                     response.json()
                         .then((json) => this.setState({
-                            archivo: json['file'],
-                            status_excel: json['status'],
-                            total_inserciones: json['nro_registros'],
-                            good_files: [],
-                            bad_files: []
+                            archivo: json.filename,
+                            status_excel: json.status,
+                            total_registros_insertados: json.registros_insertados,
+                            total_registros_procesados: json.registros_procesados,
+                            total_registros_excluidos: json.registros_excluidos,
                         })
                         );
                 }
@@ -82,8 +86,9 @@ class App extends React.Component {
                 console.error(error);
             });
     }
-    
+
     componentDidMount() {
+        /*
         //captura del nombre de llegada
         var name = "nombre";
         name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
@@ -98,17 +103,27 @@ class App extends React.Component {
                 usuario: usuario
             })
         }
-
+*/
         /*
         this.setState({
             value: 'zip',
-            archivo: prueba.file,
-            status_excel: 'status default',
-            total_inserciones: prueba.total_inserciones,
-            good_files: prueba.good_files,
-            bad_files: prueba.bad_files
-        }) */
-    } 
+            archivo: pruebaZip.file,
+            total_registros_insertados: pruebaZip.good_files.total_registros_insertados,
+            total_registros_procesados: pruebaZip.good_files.total_registros_procesados,
+            total_registros_excluidos: pruebaZip.good_files.total_registros_excluidos,
+            good_files: pruebaZip.good_files.lista_detalle,
+            bad_files: pruebaZip.bad_files
+        })*/
+        /*
+        this.setState({
+            value: 'excel',
+            archivo: pruebaExcel.filename,
+            status_excel: pruebaExcel.status,
+            total_registros_insertados: pruebaExcel.registros_insertados,
+            total_registros_procesados: pruebaExcel.registros_procesados,
+            total_registros_excluidos: pruebaExcel.registros_excluidos,
+        })*/
+    }
 
     handleFileChange(e) {
         e.preventDefault();
@@ -173,7 +188,7 @@ class App extends React.Component {
                 <div className="vista" >
                     <label className="label">
                         USUARIO: {this.state.usuario}
-                        </label>
+                    </label>
                     <form>
                         <div className="row">
                             <div className="col-xs-12 col-md-6">
@@ -241,7 +256,9 @@ class App extends React.Component {
                     <div key={this.state.uniqueId}>
                         <TableResults
                             archivo={this.state.archivo}
-                            total_inserciones={this.state.total_inserciones}
+                            total_registros_insertados={this.state.total_registros_insertados}
+                            total_registros_excluidos={this.state.total_registros_excluidos}
+                            total_registros_procesados={this.state.total_registros_procesados}
                             good_files={this.state.good_files}
                             bad_files={this.state.bad_files}
                             status={this.state.status_excel}
