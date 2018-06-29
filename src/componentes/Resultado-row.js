@@ -15,9 +15,9 @@ class ResultadoRow extends React.Component {
       } else {
         return (
           <tr>
-            <td className="td">{this.props.number}</td>
-            <td className="td">{this.props.content.filename}</td>
-            <td className="td">{this.props.content.registros_excluidos}</td>
+            <td className="td cursor" onClick={(e)=>this.props.openModalDetalle(this.props.content.registros_duplicados_detalle)}>{this.props.number}</td>
+            <td className="td cursor" onClick={(e)=>this.props.openModalDetalle(this.props.content.registros_duplicados_detalle)}>{this.props.content.filename}</td>
+            <td className="td cursor" onClick={(e)=>this.props.openModalDetalle(this.props.content.registros_duplicados_detalle)}>{this.props.content.registros_excluidos}</td>
           </tr>
         )
       }

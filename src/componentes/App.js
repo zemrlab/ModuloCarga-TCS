@@ -7,6 +7,7 @@ import '../style/label.css';
 import '../flexboxgrid.min.css';
 import TableResults from './TableResults';
 import HelpModal from './HelpModal';
+import DetalleModal from './DetalleModal';
 
 //prueba
 import pruebaExcel from './pruebaExcel';
@@ -19,7 +20,7 @@ class App extends React.Component {
             file: '',
             excelUrl: '',
             select: false,
-            usuario: 'INVITADO', //default
+            usuario: 'INVITADO',
             value: '',
             formato: '',
             archivo: null,
@@ -28,12 +29,12 @@ class App extends React.Component {
             total_registros_excluidos: 0,
             good_files: null,
             bad_files: null,
-            uniqueId: 0,
             status_excel: "",
-            help: false
+            help: false,
+            detalle: false,
+            lista_detalle: []
         };
     }
-
     handleSubmit = (e) => {
         e.preventDefault();
 
@@ -56,7 +57,8 @@ class App extends React.Component {
             body: data
         };
 
-        fetch('http://138.197.221.57:5000/upload', sentData)
+        //fetch('http://138.197.221.57:5000/upload', sentData)
+        fetch('http://159.65.73.15:5000/upload', sentData)
             .then(response => {
                 if (this.state.value === "zip") {
                     response.json()
@@ -77,6 +79,7 @@ class App extends React.Component {
                             total_registros_insertados: json.registros_insertados,
                             total_registros_procesados: json.registros_procesados,
                             total_registros_excluidos: json.registros_excluidos,
+                            lista_detalle: json.registros_duplicados_detalle
                         })
                         );
                 }
@@ -88,41 +91,43 @@ class App extends React.Component {
     }
 
     componentDidMount() {
-        /*
+
         //captura del nombre de llegada
         var name = "nombre";
         name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
         var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-        results = regex.exec(window.location.search);
+            results = regex.exec(window.location.search);
         var usuario = results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
         //muestra en consola
         console.log(usuario);
         //modificamos el usuario
-        if( usuario !== ""){
+        if (usuario !== "") {
             this.setState({
                 usuario: usuario
             })
         }
-*/
+
         /*
-        this.setState({
-            value: 'zip',
-            archivo: pruebaZip.file,
-            total_registros_insertados: pruebaZip.good_files.total_registros_insertados,
-            total_registros_procesados: pruebaZip.good_files.total_registros_procesados,
-            total_registros_excluidos: pruebaZip.good_files.total_registros_excluidos,
-            good_files: pruebaZip.good_files.lista_detalle,
-            bad_files: pruebaZip.bad_files
-        })*/
+                this.setState({
+                    value: 'zip',
+                    archivo: pruebaZip.file,
+                    total_registros_insertados: pruebaZip.good_files.total_registros_insertados,
+                    total_registros_procesados: pruebaZip.good_files.total_registros_procesados,
+                    total_registros_excluidos: pruebaZip.good_files.total_registros_excluidos,
+                    good_files: pruebaZip.good_files.lista_detalle,
+                    bad_files: pruebaZip.bad_files
+                })*/
         /*
-        this.setState({
-            value: 'excel',
-            archivo: pruebaExcel.filename,
-            status_excel: pruebaExcel.status,
-            total_registros_insertados: pruebaExcel.registros_insertados,
-            total_registros_procesados: pruebaExcel.registros_procesados,
-            total_registros_excluidos: pruebaExcel.registros_excluidos,
-        })*/
+                this.setState({
+                    value: 'excel',
+                    archivo: pruebaExcel.filename,
+                    status_excel: pruebaExcel.status,
+                    total_registros_insertados: pruebaExcel.registros_insertados,
+                    total_registros_procesados: pruebaExcel.registros_procesados,
+                    total_registros_excluidos: pruebaExcel.registros_excluidos,
+                    lista_detalle: pruebaExcel.registros_duplicados_detalle
+                })
+                */
     }
 
     handleFileChange(e) {
@@ -163,10 +168,17 @@ class App extends React.Component {
         this.setState(() => ({ help: false }));
     }
 
-    handleClick = (e) => {
-        e.preventDefault();
-        console.log('The link was clicked.');
-    };
+    openModalDetalle = (lista_detalle) => {
+        this.setState(() => ({
+            lista_detalle: lista_detalle,
+            detalle: true
+        }))
+    }
+    closeModalDetalle = () => {
+        this.setState(() => ({
+            detalle: false
+        }))
+    }
 
     render() {
         return (
@@ -176,7 +188,7 @@ class App extends React.Component {
                         <h1 className="h1">Módulo Carga de Datos</h1>
                     </div>
                     <div className="col-xs-2">
-                        <a href="http://siga-fisi.herokuapp.com/dashboard" onClick={() => { this.handleClick }}>
+                        <a href="http://siga-fisi.herokuapp.com/dashboard">
                             <img className="img"
                                 src="http://www.clker.com/cliparts/R/L/N/Y/N/e/house-logo-hi.png"
                                 alt="HOME"
@@ -253,7 +265,7 @@ class App extends React.Component {
                     <br />
                     <hr />
                     <br />
-                    <div key={this.state.uniqueId}>
+                    <div>
                         <TableResults
                             archivo={this.state.archivo}
                             total_registros_insertados={this.state.total_registros_insertados}
@@ -264,8 +276,15 @@ class App extends React.Component {
                             status={this.state.status_excel}
                             select={this.state.select}
                             tipo={this.state.value}
+                            openModalDetalle={this.openModalDetalle}
+                            lista_detalle={this.state.lista_detalle}
                         />
                     </div>
+                    <DetalleModal
+                        detalle={this.state.detalle}
+                        closeModalDetalle={this.closeModalDetalle}
+                        lista_detalle={this.state.lista_detalle}
+                    />
                 </div>
             </div>
         )

@@ -56,10 +56,22 @@
     /*border-bottom: 1px solid #ddd;para borde solo horizontal*/
   }
 
+  .otro{
+    height: 30px;
+    padding: 1px;
+    font-size: 1rem;
+    text-align: left;
+    /*border-bottom: 1px solid #ddd;para borde solo horizontal*/
+  }
+
+  .cursor{
+    cursor: pointer;
+  }
+
 .vista {
   padding: 40px;
   padding-top: 20px;
-  max-width: 90%;
+  max-width: 95%;
   margin: auto;
   border: 2px solid rgb(108, 147, 184);
   border-radius: 20px;

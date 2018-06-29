@@ -6,19 +6,20 @@ class ResultadoList extends React.Component {
   render() {
     let numbers = 0;
     return (
-        <tbody>
-          {
-            this.props.listado.map((content) => {
-              numbers = numbers + 1;
-              return <ResultadoRow 
-                          number={numbers}
-                          tipo={this.props.tipo}
-                          subtipo={this.props.subtipo}
-                          key={content.file} 
-                          content={content} />
-            })
-          }
-        </tbody>
+      <tbody>
+        {
+          this.props.listado.map((content) => {
+            numbers = numbers + 1;
+            return <ResultadoRow
+              openModalDetalle={this.props.openModalDetalle}
+              number={numbers}
+              tipo={this.props.tipo}
+              subtipo={this.props.subtipo}
+              key={content.filename}
+              content={content} />
+          })
+        }
+      </tbody>
     )
   }
 }
