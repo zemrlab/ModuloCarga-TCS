@@ -55,6 +55,11 @@
     border: 3px solid WHITE;
     /*border-bottom: 1px solid #ddd;para borde solo horizontal*/
   }
+  .cursor:hover{
+    cursor: pointer;
+    color: #154169;
+    font-weight: bold;
+  }
 
   .otro{
     height: 30px;
@@ -64,9 +69,6 @@
     /*border-bottom: 1px solid #ddd;para borde solo horizontal*/
   }
 
-  .cursor{
-    cursor: pointer;
-  }
 
 .vista {
   padding: 40px;

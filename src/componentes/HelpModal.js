@@ -10,7 +10,7 @@ const HelpModal = (props) => (
     //className="modal"
     >
         <div>
-            <h1 className="h1-modal">Formatos</h1>
+        <h1 align="center">Formatos</h1>
         </div>
         <hr />
         <div className="row center-xs">
@@ -19,6 +19,7 @@ const HelpModal = (props) => (
         <div className="row center-xs">
             <img src="https://image.ibb.co/gVy0Xd/formato1.png" alt="Formato 1 en espera..." />
         </div>
+        <br/>
         <hr />
         <div className="row center-xs">
             <h4>Formato 2</h4>
@@ -26,9 +27,11 @@ const HelpModal = (props) => (
         <div className="row center-xs">
             <img src="https://image.ibb.co/gyLsdJ/formato2.png" alt="Formato 2 en espera..." />
         </div>
+        <br/>
         <hr />
+        <br/>
         <div className="row center-xs">
-            <button className="myButton" onClick={props.handClearSelectedOption} >Close</button>
+            <button className="myButtonCenter" onClick={props.handClearSelectedOption} >Close</button>
         </div>
     </Modal>
 );

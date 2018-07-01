@@ -8,21 +8,22 @@ import '../flexboxgrid.min.css';
 import TableResults from './TableResults';
 import HelpModal from './HelpModal';
 import DetalleModal from './DetalleModal';
-
-//prueba
-import pruebaExcel from './pruebaExcel';
-import pruebaZip from './pruebaZip';
+import CapturaDatos from './CapturaDatos';
+import Cabecera from './Cabecera';
 
 class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            file: '',
+            //usados para la carga de archivos
             excelUrl: '',
             select: false,
+            //captura los datos para la carga de archivos
+            file: '',
             usuario: 'INVITADO',
             value: '',
             formato: '',
+            //almacenamiento de los datos recibidos
             archivo: null,
             total_registros_insertados: 0,
             total_registros_procesados: 0,
@@ -30,36 +31,37 @@ class App extends React.Component {
             good_files: null,
             bad_files: null,
             status_excel: "",
+            //modal de ayuda
             help: false,
+            //modal de detalles de duplicados
             detalle: false,
             lista_detalle: []
+
         };
     }
+    
+    //metodo de carga del archivo
     handleSubmit = (e) => {
         e.preventDefault();
-
+        //indicamos que el archivo ha sido enviado
         this.setState({
             select: true
         });
-
+        //cargamos los datos a un FormData
         var data = new FormData();
         data.append('file', this.state.file);
         data.append('tipo', this.state.value);
         data.append('name', this.state.usuario);
         data.append('formato', this.state.formato);
-
-        console.log(this.state.file);
-        this.setState((prevState) => ({ uniqueId: prevState.uniqueId + 1 }))
-
+        //escribimos los parametros para el envio tipo POST
         let sentData = {
             method: 'POST',
-            //mode: 'no-cors',
             body: data
         };
-
-        //fetch('http://138.197.221.57:5000/upload', sentData)
+        //indicamos la url a donde enviaremos y recibiremos la data
         fetch('http://159.65.73.15:5000/upload', sentData)
             .then(response => {
+                //capturamos la respuesta para zip
                 if (this.state.value === "zip") {
                     response.json()
                         .then((json) => this.setState({
@@ -71,7 +73,9 @@ class App extends React.Component {
                             bad_files: json.bad_files
                         })
                         );
-                } else {
+                }
+                //capturamos la respuesta para excel
+                else {
                     response.json()
                         .then((json) => this.setState({
                             archivo: json.filename,
@@ -84,14 +88,15 @@ class App extends React.Component {
                         );
                 }
             })
+            //capturamos cualqueir error producido
             .catch(error => {
-                alert(error);
+                alert('Error de conexion con la Base de Datos');
                 console.error(error);
             });
     }
 
+    //el primer componente que se ejecutará
     componentDidMount() {
-
         //captura del nombre de llegada
         var name = "nombre";
         name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
@@ -106,33 +111,12 @@ class App extends React.Component {
                 usuario: usuario
             })
         }
-
-        /*
-                this.setState({
-                    value: 'zip',
-                    archivo: pruebaZip.file,
-                    total_registros_insertados: pruebaZip.good_files.total_registros_insertados,
-                    total_registros_procesados: pruebaZip.good_files.total_registros_procesados,
-                    total_registros_excluidos: pruebaZip.good_files.total_registros_excluidos,
-                    good_files: pruebaZip.good_files.lista_detalle,
-                    bad_files: pruebaZip.bad_files
-                })*/
-        /*
-                this.setState({
-                    value: 'excel',
-                    archivo: pruebaExcel.filename,
-                    status_excel: pruebaExcel.status,
-                    total_registros_insertados: pruebaExcel.registros_insertados,
-                    total_registros_procesados: pruebaExcel.registros_procesados,
-                    total_registros_excluidos: pruebaExcel.registros_excluidos,
-                    lista_detalle: pruebaExcel.registros_duplicados_detalle
-                })
-                */
     }
 
-    handleFileChange(e) {
+    //metodo de modificación de archivos
+    handleFileChange = (e) => {
         e.preventDefault();
-
+        //restauramos los parametros frente a una posible nueva carga
         this.setState({
             archivo: null,
             total_inserciones: 0,
@@ -143,9 +127,11 @@ class App extends React.Component {
         })
 
         try {
+            //capturamos los datos necesarios del archivo seleccionado
             let reader = new FileReader();
             let file = e.target.files[0];
             let tipoFile = '';
+            //capturamos el formato
             if (file.name.endsWith(".xls")) {
                 tipoFile = 'excel'
             } else if (file.name.endsWith(".zip")) {
@@ -164,16 +150,32 @@ class App extends React.Component {
         }
     }
 
+    //metodo de cambio de formato del archivo (1 o 2)
+    changeFormato = (formato) => {
+        this.setState(()=>({
+            formato: formato
+        }))
+    }
+
+    //metodo de despliegue de ayuda para la selección del formato
+    ayudaModal = () => {
+        this.setState(() => ({ help: true }));
+    }
+
+    //metodo para el cierre de la ayuda
     handClearSelectedOption = () => {
         this.setState(() => ({ help: false }));
     }
 
+    //capturamos la lista de detalles y desplegamos el modal
     openModalDetalle = (lista_detalle) => {
         this.setState(() => ({
             lista_detalle: lista_detalle,
             detalle: true
         }))
     }
+
+    //cerramos el modal
     closeModalDetalle = () => {
         this.setState(() => ({
             detalle: false
@@ -183,81 +185,24 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                <div className="row">
-                    <div className="col-xs-10">
-                        <h1 className="h1">Módulo Carga de Datos</h1>
-                    </div>
-                    <div className="col-xs-2">
-                        <a href="http://siga-fisi.herokuapp.com/dashboard">
-                            <img className="img"
-                                src="http://www.clker.com/cliparts/R/L/N/Y/N/e/house-logo-hi.png"
-                                alt="HOME"
-                                height="60" width="60"
-                                align="right" />
-                        </a>
-                    </div>
-                </div>
+                <Cabecera/>
                 <div className="vista" >
-                    <label className="label">
-                        USUARIO: {this.state.usuario}
-                    </label>
-                    <form>
-                        <div className="row">
-                            <div className="col-xs-12 col-md-6">
-                                <input
-                                    type="file"
-                                    className="fileInput"
-                                    pattern=".*[^ ].*"
-                                    required
-                                    accept=".xls, .zip"
-                                    onChange={(e) => this.handleFileChange(e)}
-                                />
-                            </div>
-                            <div className="col-xs-4 col-md-2">
-                                <input className="labelinput"
-                                    value={this.state.value}
-                                    disabled
-                                />
-                            </div>
-                            <div className="col-xs-6 col-md-3">
-                                <select
-                                    className="input"
-                                    placeholder="Seleccione formato"
-                                    required
-                                    value={this.state.formato}
-                                    onChange={(e) => { this.setState({ formato: e.target.value }) }}
-                                >
-                                    <option value="" disabled>Tipo de Archivo</option>
-                                    <option value="1">(1) Despues del 2010</option>
-                                    <option value="2">(2) Del 2010 o antes</option>
-                                </select>
-                            </div>
-                            <div className="col-xs-2 col-md-1">
-                                <input className="myButton" type="button"
-                                    onClick={(e) => { this.setState({ help: true }) }}
-                                    value="?" />
-                            </div>
+                    <div className="row">
+                        <div className="col-xs-12 col-md-6">
+                            <label className="label">
+                                USUARIO: {this.state.usuario}
+                            </label>
                         </div>
-                        <div className="row">
-                            <div className="col-xs-0 col-md-9">
-                            </div>
-                            <div className="col-xs-12 col-md-3">
-                                <input
-                                    className="myButton"
-                                    type="submit"
-                                    value="CARGAR"
-                                    onClick={(e) => {
-                                        if (this.state.excelUrl.trim() === '' || this.state.value === '' || this.state.formato === '') {
-                                            console.log('Complete los campos.');
-                                        } else {
-                                            this.handleSubmit(e);
-                                        }
-                                    }}
-                                />
-                            </div>
-                        </div>
-                    </form>
-
+                    </div>
+                    <CapturaDatos
+                        value={this.state.value}
+                        formato={this.state.formato}
+                        excelUrl={this.state.excelUrl}
+                        handleFileChange={this.handleFileChange}
+                        changeFormato={this.changeFormato}
+                        ayudaModal={this.ayudaModal}
+                        handleSubmit={this.handleSubmit}
+                    />
                     <HelpModal
                         help={this.state.help}
                         handClearSelectedOption={this.handClearSelectedOption}

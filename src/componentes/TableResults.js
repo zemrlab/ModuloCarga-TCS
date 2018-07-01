@@ -1,6 +1,6 @@
 import React from 'react';
-import TableHeader from './Table-Header';
-import ResultadoList from './Resultado-list';
+import ResultadosZip from './ResultadosZip';
+import ResultadosExcel from './ResultadosExcel';
 
 class TableResults extends React.Component {
     constructor(props) {
@@ -12,28 +12,30 @@ class TableResults extends React.Component {
         }
     }
 
-    componentDidUpdate(prevProps, prevState) {
+    componentDidUpdate(prevProps) {
         if (prevProps.archivo !== this.props.archivo) {
-            this.setState((prevState) => ({
+            this.setState(() => ({
+                tipo: 'good',
+                subtipo: 'insert',
                 listado: this.props.good_files
             }))
         }
     }
 
-    selectGoodTable() {
+    selectGoodTable = () => {
         this.setState({
             tipo: 'good',
             subtipo: 'insert',
             listado: this.props.good_files
         })
     }
-    selectBadTable() {
+    selectBadTable = () => {
         this.setState({
             tipo: 'bad',
             listado: this.props.bad_files
         })
     }
-    selectDuplexTable() {
+    selectDuplexTable = () => {
         this.setState({
             tipo: 'good',
             subtipo: 'duplex',
@@ -62,96 +64,33 @@ class TableResults extends React.Component {
             if (this.props.tipo === "zip") {
                 return (
                     <div>
-                        <div className="container">
-                            <div className="row">
-                                <div className="col-xs-12 col-md-4">
-                                    <form>
-                                        <label className="label-carga">
-                                            Total registros procesados:
-                                        </label>
-                                        <label className="label-number">
-                                            {this.props.total_registros_procesados}
-                                        </label>
-                                    </form>
-                                    <form>
-                                        <label className="label-carga">
-                                            - Total registros insertados: {this.props.total_registros_insertados}
-                                        </label>
-                                    </form>
-                                    <form>
-                                        <label className="label-carga">
-                                            - Total registros duplicados: {this.props.total_registros_excluidos}
-                                        </label>
-                                    </form>
-                                    <hr />
-                                    <p className="label-carga">Archivo: {this.props.archivo}</p>
-                                </div>
-                                <div className="col-xs-12 col-md-8">
-                                    <br />
-                                    <div className="row center-xs">
-                                        <button
-                                            className="myButtonLeft"
-                                            onClick={() => this.selectGoodTable()}
-                                        >Insertados</button>
-                                        <button
-                                            className="myButtonCenter"
-                                            onClick={() => this.selectDuplexTable()}
-                                        >Duplicados</button>
-                                        <button
-                                            className="myButtonRight"
-                                            onClick={() => this.selectBadTable()}
-                                        >Fallidos</button>
-                                    </div>
-                                    <br /><br />
-                                    <table className="table">
-                                        <TableHeader />
-                                        <ResultadoList
-                                            openModalDetalle={this.props.openModalDetalle}
-                                            tipo={this.state.tipo}
-                                            subtipo={this.state.subtipo}
-                                            listado={this.state.listado}
-                                        />
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
+                        <ResultadosZip
+                            selectGoodTable={this.selectGoodTable}
+                            selectDuplexTable={this.selectDuplexTable}
+                            selectBadTable={this.selectBadTable}
+                            total_registros_procesados={this.props.total_registros_procesados}
+                            total_registros_insertados={this.props.total_registros_insertados}
+                            total_registros_excluidos={this.props.total_registros_excluidos}
+                            archivo={this.props.archivo}
+                            openModalDetalle={this.props.openModalDetalle}
+                            tipo={this.state.tipo}
+                            subtipo={this.state.subtipo}
+                            listado={this.state.listado}
+                        />
                     </div>
                 )
             } else {
                 return (
                     <div>
-                        <div className="row">
-                            <div className="col-xs-12 col-md-4">
-                                <form>
-                                    <label className="label-carga">
-                                        Total registros procesados:
-                                        </label>
-                                    <label className="label-number">
-                                        {this.props.total_registros_procesados}
-                                    </label>
-                                </form>
-                                <form>
-                                    <label className="label-carga">
-                                        - Total registros insertados: {this.props.total_registros_insertados}
-                                    </label>
-                                </form>
-                                <form>
-                                    <label className="label-carga">
-                                        - Total registros duplicados: {this.props.total_registros_excluidos}
-                                    </label>
-                                </form>
-                                <hr />
-                                <p className="label-carga">Archivo: {this.props.archivo}</p>
-                                <p className="label-carga">Estado: {this.props.status}</p>
-                            </div>
-                            <div className="col-xs-12 col-md-8">
-                                <br /><br />
-                                <div align="center">
-                                    <button className="myButtonCenter" onClick={(e)=>this.props.openModalDetalle(this.props.lista_detalle)}>Ver Registros Duplicados</button>
-                                </div>
-                            </div>
-                        </div>
-
+                        <ResultadosExcel
+                            total_registros_procesados={this.props.total_registros_procesados}
+                            total_registros_insertados={this.props.total_registros_insertados}
+                            total_registros_excluidos={this.props.total_registros_excluidos}
+                            archivo={this.props.archivo}
+                            status={this.props.status}
+                            lista_detalle={this.props.lista_detalle}
+                            openModalDetalle={this.props.openModalDetalle}
+                        />
                     </div>
                 )
             }

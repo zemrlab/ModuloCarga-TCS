@@ -15,9 +15,11 @@ const DetalleModal = (props) => (
         <div>
             <h1 align="center">Lista de Registros Duplicados</h1>
         </div>
+        <br/>
         <TableDuplicados
             lista_detalle = {props.lista_detalle}
         />
+        <br/>
         <div className="row center-xs">
             <button className="myButtonCenter" onClick={props.closeModalDetalle}>Close</button>
         </div>
