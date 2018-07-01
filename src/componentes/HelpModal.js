@@ -5,9 +5,6 @@ const HelpModal = (props) => (
     <Modal
         isOpen={props.help}
         onRequestClose={props.handClearSelectedOption}
-    //contentLabel="Selected Option"
-    //closeTimeoutMS={200}
-    //className="modal"
     >
         <div>
         <h1 align="center">Formatos</h1>

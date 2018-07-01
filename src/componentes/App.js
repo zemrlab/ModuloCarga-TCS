@@ -21,7 +21,7 @@ class App extends React.Component {
             //captura los datos para la carga de archivos
             file: '',
             usuario: 'INVITADO',
-            value: '',
+            value: '', //zip o excel
             formato: '',
             //almacenamiento de los datos recibidos
             archivo: null,

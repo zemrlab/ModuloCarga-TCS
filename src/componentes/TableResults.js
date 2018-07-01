@@ -12,6 +12,7 @@ class TableResults extends React.Component {
         }
     }
 
+    //actualizamos la lista cuando cambiemos de archivo
     componentDidUpdate(prevProps) {
         if (prevProps.archivo !== this.props.archivo) {
             this.setState(() => ({
@@ -22,6 +23,7 @@ class TableResults extends React.Component {
         }
     }
 
+    //selecciona Insertados
     selectGoodTable = () => {
         this.setState({
             tipo: 'good',
@@ -29,12 +31,16 @@ class TableResults extends React.Component {
             listado: this.props.good_files
         })
     }
+
+    //selecciona Fallidos
     selectBadTable = () => {
         this.setState({
             tipo: 'bad',
             listado: this.props.bad_files
         })
     }
+
+    //selecciona Duplicados
     selectDuplexTable = () => {
         this.setState({
             tipo: 'good',

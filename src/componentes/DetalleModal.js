@@ -8,9 +8,6 @@ const DetalleModal = (props) => (
     <Modal
         isOpen={props.detalle}
         onRequestClose={props.closeModalDetalle}
-    //contentLabel="Selected Option"
-    //closeTimeoutMS={200}
-    //className="modal"
     >
         <div>
             <h1 align="center">Lista de Registros Duplicados</h1>
