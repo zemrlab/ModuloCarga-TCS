@@ -12,11 +12,11 @@ import InsertadosModal from './InsertadosModal';
 import CapturaDatos from './CapturaDatos';
 import Cabecera from './Cabecera';
 
-
+/*
 //Utlice esto para las pruebas con formato zip y excel
 import pruebaZip from './pruebaZip';
 import pruebaExcel from './pruebaExcel';
-
+*/
 
 class App extends React.Component {
     constructor(props) {
@@ -127,7 +127,7 @@ class App extends React.Component {
             })
         }
 
-        
+        /*
         //Utilice esta parte para pruebas con formato zip
         this.setState({
             value: 'zip',
@@ -140,7 +140,7 @@ class App extends React.Component {
             no_procesados: pruebaZip.no_procesados,
             si_procesados: pruebaZip.si_procesados
         })
-        
+        */
 
         /*
         //Utilice esta parte para pruebas con formato excel
