@@ -39,6 +39,7 @@ class App extends React.Component {
             bad_files: null,
             status_excel: "",
             no_procesados: 0,
+            si_procesados: 0,
             //modal de ayuda
             help: false,
             //modal de detalles de duplicados
@@ -82,7 +83,8 @@ class App extends React.Component {
                             total_registros_excluidos: json.good_files.total_registros_excluidos,
                             good_files: json.good_files.lista_detalle,
                             bad_files: json.bad_files,
-                            no_procesados: json.no_procesados
+                            no_procesados: json.no_procesados,
+                            si_procesados: json.si_procesados
                         })
                         );
                 }
@@ -135,7 +137,8 @@ class App extends React.Component {
             total_registros_excluidos: pruebaZip.good_files.total_registros_excluidos,
             good_files: pruebaZip.good_files.lista_detalle,
             bad_files: pruebaZip.bad_files,
-            no_procesados: pruebaZip.no_procesados
+            no_procesados: pruebaZip.no_procesados,
+            si_procesados: pruebaZip.si_procesados
         })
         */
 
@@ -288,6 +291,7 @@ class App extends React.Component {
                             bad_files={this.state.bad_files}
                             status={this.state.status_excel}
                             no_procesados={this.state.no_procesados}
+                            si_procesados={this.state.si_procesados}
                             select={this.state.select}
                             tipo={this.state.value}
                             openModalDuplicados={this.openModalDuplicados}

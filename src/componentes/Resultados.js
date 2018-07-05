@@ -73,7 +73,7 @@ class Resultados extends React.Component {
                     <div>
                         <AlertaCarga
                             no_procesados={this.props.no_procesados}
-                            total_registros_procesados={this.props.total_registros_procesados}
+                            si_procesados={this.props.si_procesados}
                         />
                         <ResultadosZip
                             selectGoodTable={this.selectGoodTable}
