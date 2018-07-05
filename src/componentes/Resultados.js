@@ -3,7 +3,7 @@ import ResultadosZip from './ResultadosZip';
 import ResultadosExcel from './ResultadosExcel';
 import AlertaCarga from './AlertaCarga';
 
-class TableResults extends React.Component {
+class Resultados extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -111,4 +111,4 @@ class TableResults extends React.Component {
     }
 }
 
-export default TableResults;
+export default Resultados;

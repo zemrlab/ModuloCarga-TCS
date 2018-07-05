@@ -5,15 +5,18 @@ import '../style/button.css';
 import '../style/fileInput.css';
 import '../style/label.css';
 import '../flexboxgrid.min.css';
-import TableResults from './TableResults';
+import Resultados from './Resultados';
 import HelpModal from './HelpModal';
 import DuplicadosModal from './DuplicadosModal';
 import InsertadosModal from './InsertadosModal';
 import CapturaDatos from './CapturaDatos';
 import Cabecera from './Cabecera';
 
+/*
+utlice esto para las pruebas con formato zip y excel
 import pruebaZip from './pruebaZip';
 import pruebaExcel from './pruebaExcel';
+*/
 
 class App extends React.Component {
     constructor(props) {
@@ -67,7 +70,7 @@ class App extends React.Component {
             body: data
         };
         //indicamos la url a donde enviaremos y recibiremos la data
-        fetch('http://159.65.73.15:5000/upload', sentData)
+        fetch('http://159.89.147.241:5000/upload', sentData)
             .then(response => {
                 //capturamos la respuesta para zip
                 if (this.state.value === "zip") {
@@ -78,7 +81,8 @@ class App extends React.Component {
                             total_registros_procesados: json.good_files.total_registros_procesados,
                             total_registros_excluidos: json.good_files.total_registros_excluidos,
                             good_files: json.good_files.lista_detalle,
-                            bad_files: json.bad_files
+                            bad_files: json.bad_files,
+                            no_procesados: json.no_procesados
                         })
                         );
                 }
@@ -91,7 +95,8 @@ class App extends React.Component {
                             total_registros_insertados: json.registros_insertados,
                             total_registros_procesados: json.registros_procesados,
                             total_registros_excluidos: json.registros_excluidos,
-                            lista_detalle: json.registros_duplicados_detalle
+                            lista_detalle_insertados: json.registros_insertados_detalle,
+                            lista_detalle_duplicados: json.registros_duplicados_detalle
                         })
                         );
                 }
@@ -120,6 +125,8 @@ class App extends React.Component {
             })
         }
 
+        /*
+        //Utilice esta parte para pruebas con formato zip
         this.setState({
             value: 'zip',
             archivo: pruebaZip.file,
@@ -130,8 +137,10 @@ class App extends React.Component {
             bad_files: pruebaZip.bad_files,
             no_procesados: pruebaZip.no_procesados
         })
+        */
 
         /*
+        //Utilice esta parte para pruebas con formato excel
         this.setState({
             value: 'excel',
             archivo: pruebaExcel.filename,
@@ -186,7 +195,7 @@ class App extends React.Component {
                 reader.readAsDataURL(file)
             } else {
                 document.getElementById('filereader').value = "";
-                alert('Archivo no válido.\nSolo se admiten archivos con formato\n.zip y .xls');
+                alert('Archivo no válido.\nSolo se admiten archivos con formato .zip y .xls');
             }
         } catch (e) {
             document.getElementById('filereader').value = "";
@@ -270,7 +279,7 @@ class App extends React.Component {
                     <hr />
                     <br />
                     <div>
-                        <TableResults
+                        <Resultados
                             archivo={this.state.archivo}
                             total_registros_insertados={this.state.total_registros_insertados}
                             total_registros_excluidos={this.state.total_registros_excluidos}

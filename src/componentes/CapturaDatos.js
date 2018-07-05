@@ -33,9 +33,9 @@ class CapturaDatos extends React.Component {
                                 value={this.props.formato}
                                 onChange={(e) => this.props.changeFormato(e.target.value)}
                             >
-                                <option value="" disabled>Tipo de Moneda</option>
-                                <option value="1">1. Soles</option>
-                                <option value="2">2. Dólares</option>
+                                <option value="" disabled>Formato del Archivo</option>
+                                <option value="1">1. Después del 2010</option>
+                                <option value="2">2. Del 2010 o antes</option>
                             </select>
                         </div>
                         <div className="col-xs-2 col-md-1">

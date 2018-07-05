@@ -251,6 +251,6 @@ const pruebaZip =
         "total_registros_insertados": 57,
         "total_registros_procesados": 77
     },
-    "no_procesados": 1
+    "no_procesados": 0
 }
 export default pruebaZip;
