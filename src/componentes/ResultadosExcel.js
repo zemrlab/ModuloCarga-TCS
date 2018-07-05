@@ -1,4 +1,5 @@
 import React from 'react';
+import AlertaStatusExcel from './AlertaStatusExcel';
 
 class ResultadosExcel extends React.Component {
 
@@ -27,7 +28,9 @@ class ResultadosExcel extends React.Component {
                         </form>
                         <hr />
                         <p className="label-carga">Archivo: {this.props.archivo}</p>
-                        <p className="label-carga">Estado: {this.props.status}</p>
+                        <AlertaStatusExcel 
+                            status={this.props.status}
+                        />
                     </div>
                     <div className="col-xs-12 col-md-8">
                         <br /><br />

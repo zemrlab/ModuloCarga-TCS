@@ -13,7 +13,7 @@ class InsertadosModal extends React.Component {
                     onRequestClose={this.props.closeModalInsertados}
                 >
                     <div>
-                        <h1 align="center">Lista de Registros Duplicados</h1>
+                        <h1 align="center">Lista de Registros Insertados</h1>
                     </div>
                     <br />
                     <div className="row center-xs">

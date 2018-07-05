@@ -11,7 +11,7 @@ class AlertaCarga extends React.Component {
         if (this.props.no_procesados > 0) {
             return (
                 <div>
-                    <div id="alerta" className="alert" align="center">
+                    <div id="alerta" className="alert fondo-rojo" align="center">
                         <span className="closebtn" onClick={() => this.closeAlerta()}>&times;</span>
                         <strong>¡Atención!</strong> {this.props.no_procesados} archivo(s) no ha(n) sido procesado(s). Por favor revíselo en la pestaña Fallidos.
                     </div>

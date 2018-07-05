@@ -17,7 +17,7 @@ class HelpModal extends React.Component {
                     </div>
                     <br />
                     <div className="row center-xs">
-                        <img src="https://image.ibb.co/mweDrd/formato1.png" alt="Formato 1 en espera..." />
+                        <img src="https://image.ibb.co/hENGwd/Formato_Correcto.png" alt="Formato 1 en espera..." />
                     </div>
                     <br />
                     <br />

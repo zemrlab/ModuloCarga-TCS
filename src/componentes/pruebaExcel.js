@@ -26,6 +26,6 @@ const pruebaExcel =
         }
     ],
     "registros_procesados": 6,
-    "status": "OK"
+    "status": "el archivo no contiene esta wea"
 }
 export default pruebaExcel;

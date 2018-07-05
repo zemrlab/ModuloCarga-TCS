@@ -14,7 +14,7 @@ class CapturaDatos extends React.Component {
                                 className="fileInput"
                                 pattern=".*[^ ].*"
                                 required
-                                accept=".xls, .zip"
+                                accept=".xls, .zip, .xlsx"
                                 onChange={(e) => this.props.handleFileChange(e)}
                             />
                         </div>

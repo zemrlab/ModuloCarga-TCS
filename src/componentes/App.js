@@ -13,7 +13,7 @@ import CapturaDatos from './CapturaDatos';
 import Cabecera from './Cabecera';
 
 /*
-utlice esto para las pruebas con formato zip y excel
+//Utlice esto para las pruebas con formato zip y excel
 import pruebaZip from './pruebaZip';
 import pruebaExcel from './pruebaExcel';
 */
@@ -195,7 +195,7 @@ class App extends React.Component {
                 reader.readAsDataURL(file)
             } else {
                 document.getElementById('filereader').value = "";
-                alert('Archivo no válido.\nSolo se admiten archivos con formato .zip y .xls');
+                alert('Archivo no válido.\nSolo se admiten archivos con formato .zip, .xls y .xlsx');
             }
         } catch (e) {
             document.getElementById('filereader').value = "";

@@ -87,8 +87,13 @@
   padding: 10px;
   font-family: Arial;
   font-size: 1.1rem;
-  background-color: #f44336;
   color: white;
+}
+.fondo-rojo {
+  background-color: #f44336;
+}
+.fondo-verde {
+  background-color: green;
 }
 
 .closebtn {
