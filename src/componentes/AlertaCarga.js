@@ -22,6 +22,11 @@ class AlertaCarga extends React.Component {
         else {
             return (
                 <div>
+                    <div id="alerta" className="alert fondo-verde" align="center">
+                        <span className="closebtn" onClick={() => this.closeAlerta()}>&times;</span>
+                        <strong>¡Excelente!</strong> {this.props.total_registros_procesados} archivo(s) ha(n) sido procesado(s) correctamente.
+                    </div>
+                    <br /><br />
                 </div>
             )
         }
