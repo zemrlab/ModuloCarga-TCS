@@ -7,7 +7,7 @@ class Cabecera extends React.Component {
             <div>
                 <div className="row">
                     <div className="col-xs-10">
-                        <h1 className="h1">Módulo Carga de Datos</h1>
+                        <h1 className="h1 white">Módulo Carga de Datos</h1>
                     </div>
                     <div className="col-xs-2">
                         <a href="http://siga-fisi.herokuapp.com/dashboard">

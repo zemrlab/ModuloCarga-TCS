@@ -1,5 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
+import '../style/style.css';
 
 class HelpModal extends React.Component {
     render() {
@@ -17,7 +18,7 @@ class HelpModal extends React.Component {
                     </div>
                     <br />
                     <div className="row center-xs">
-                        <img src="https://image.ibb.co/kUbMey/formato1.png" alt="Formato 1 en espera..." />
+                        <img className="imagenmodal" src="https://image.ibb.co/kUbMey/formato1.png" alt="Formato 1 en espera..." />
                     </div>
                     <br />
                     <br />
@@ -26,7 +27,7 @@ class HelpModal extends React.Component {
                     </div>
                     <br />
                     <div className="row center-xs">
-                        <img src="https://image.ibb.co/hENGwd/Formato_Correcto.png" alt="Formato 2 en espera..." />
+                        <img className="imagenmodal" src="https://image.ibb.co/hENGwd/Formato_Correcto.png" alt="Formato 2 en espera..." />
                     </div>
                     <br />
                     <br />

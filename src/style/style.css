@@ -110,3 +110,10 @@
 .closebtn:hover {
   color: black;
 }
+
+.imagenmodal{
+  height: 47px;
+}
+.white{
+  color: #ffffff;
+}
