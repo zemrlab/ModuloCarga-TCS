@@ -6,26 +6,18 @@ const HelpModal = (props) => (
         isOpen={props.help}
         onRequestClose={props.handClearSelectedOption}
     >
-        <div>
-        <h1 align="center">Formatos</h1>
-        </div>
-        <hr />
         <div className="row center-xs">
-            <h4>Formato 1</h4>
+        <h1 className="h1" align="center">Formato</h1>
         </div>
         <div className="row center-xs">
-            <img src="https://image.ibb.co/gVy0Xd/formato1.png" alt="Formato 1 en espera..." />
+            <h1>Los excel a procesar deben tener el siguiente formato:</h1>
         </div>
         <br/>
-        <hr />
         <div className="row center-xs">
-            <h4>Formato 2</h4>
-        </div>
-        <div className="row center-xs">
-            <img src="https://image.ibb.co/gyLsdJ/formato2.png" alt="Formato 2 en espera..." />
+            <img src="https://image.ibb.co/mweDrd/formato1.png" alt="Formato 1 en espera..." />
         </div>
         <br/>
-        <hr />
+        <br/>
         <br/>
         <div className="row center-xs">
             <button className="myButtonCenter" onClick={props.handClearSelectedOption} >Close</button>

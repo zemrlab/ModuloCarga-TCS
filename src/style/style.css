@@ -69,6 +69,9 @@
     /*border-bottom: 1px solid #ddd;para borde solo horizontal*/
   }
 
+.modalwidth{
+  width: 80%;
+}
 
 .vista {
   padding: 40px;
@@ -80,3 +83,25 @@
   background-color: #ffffff;
 }
 
+.alert {
+  padding: 10px;
+  font-family: Arial;
+  font-size: 1.1rem;
+  background-color: #f44336;
+  color: white;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 30px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}

@@ -22,7 +22,7 @@ class ResultadosExcel extends React.Component {
                         </form>
                         <form>
                             <label className="label-carga">
-                                - Total registros duplicados: {this.props.total_registros_excluidos}
+                                - Total registros duplicados NO insertados: {this.props.total_registros_excluidos}
                             </label>
                         </form>
                         <hr />
@@ -32,7 +32,11 @@ class ResultadosExcel extends React.Component {
                     <div className="col-xs-12 col-md-8">
                         <br /><br />
                         <div align="center">
-                            <button className="myButtonCenter" onClick={(e) => this.props.openModalDetalle(this.props.lista_detalle)}>Ver Registros Duplicados</button>
+                            <button className="myButtonCenter" onClick={(e) => this.props.openModalInsertados(this.props.lista_detalle_insertados)}>Ver Registros Insertados</button>
+                        </div>
+                        <br />
+                        <div align="center">
+                            <button className="myButtonCenter" onClick={(e) => this.props.openModalDuplicados(this.props.lista_detalle_duplicados)}>Ver Registros Duplicados</button>
                         </div>
                     </div>
                 </div>

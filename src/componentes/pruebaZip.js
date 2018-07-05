@@ -1,268 +1,256 @@
 const pruebaZip =
 {
     "bad_files": [],
-    "file": "gggg.zip",
+    "file": "pruebaFake.zip",
     "good_files": {
         "lista_detalle": [
             {
-                "filename": "Sistemas_recaud.02-01-17.xls",
+                "filename": "pruebaFake.xls",
                 "registros_duplicados_detalle": [
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210011', '210', '011', '11546468', '0', 'MORI PEÐA JOSE MIGUEL', 2720.0, 0, 0, 0, 0, 0, '20170102')"
+                        "registro": "('108', 'ING.SISTEMAS', '210010', '210', '010', '8734231', '9200220', 'CASTILLO ROMERO ROSEL MIGUEL', 373.0, 0, 0, 0, 0, 0, '20180328')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210011', '210', '011', '11577194', '0', 'VEREAU AGREDA DIEGO ANDRE', 750.0, 0, 0, 0, 0, 0, '20170102')"
+                        "registro": "('108', 'ING.SISTEMAS', '210010', '210', '010', '8734422', '4200088', 'TEJADA QUISPE ORLANDO', 373.0, 0, 0, 0, 0, 0, '20180328')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210011', '210', '011', '11577195', '0', 'VEREAU AGREDA DIEGO ANDRE', 750.0, 0, 0, 0, 0, 0, '20170102')"
+                        "registro": "('108', 'ING.SISTEMAS', '210010', '210', '010', '11276464', '0', 'CARLOS ALBERTO MONTERO QUISPE', 373.0, 0, 0, 0, 0, 0, '20180328')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210011', '210', '011', '11677997', '0', 'EDGAR GUILLERMO RODRIGUEZ ARAN', 3000.0, 0, 0, 0, 0, 0, '20170102')"
+                        "registro": "('108', 'ING.SISTEMAS', '210010', '210', '010', '11365787', '0', 'CESAR ENRIQUE SALAS ARBAIZA', 500.0, 0, 0, 0, 0, 0, '20180328')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210024', '210', '024', '11492520', '0', 'JOSE CARLOS ACOSTA BRAVO', 800.0, 0, 0, 0, 0, 0, '20170102')"
+                        "registro": "('108', 'ING.SISTEMAS', '210010', '210', '010', '11545041', '0', 'RICHARD OMAR FERNANDEZ CRUZADO', 373.0, 0, 0, 0, 0, 0, '20180328')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210106', '210', '106', '11665957', '0', 'RENZO LEON BAUTISTA', 26.0, 0, 0, 0, 0, 0, '20170102')"
+                        "registro": "('108', 'ING.SISTEMAS', '210010', '210', '010', '11940234', '0', 'REQUENA SAAVEDRA JEANETTE', 373.0, 0, 0, 0, 0, 0, '20180328')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210155', '210', '155', '7965188', '10200032', 'OLORTEGUI ROMERO EMERSON ELIO', 26.0, 0, 0, 0, 0, 0, '20170102')"
+                        "registro": "('108', 'ING.SISTEMAS', '210010', '210', '010', '11940261', '0', 'ALVAREZ GUIZADO JULIO ENRIQUE', 373.0, 0, 0, 0, 0, 0, '20180328')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210155', '210', '155', '11628997', '0', 'CARLOS EDUARDO OCROSPOMA SARAS', 26.0, 0, 0, 0, 0, 0, '20170102')"
+                        "registro": "('108', 'ING.SISTEMAS', '210010', '210', '010', '12006548', '0', 'MOISES POMA POMA', 373.0, 0, 0, 0, 0, 0, '20180328')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210156', '210', '156', '7965267', '9200137', 'AMARO VILLAJULCA DANIEL ROBERT', 15.0, 0, 0, 0, 0, 0, '20170102')"
+                        "registro": "('108', 'ING.SISTEMAS', '210010', '210', '010', '12008177', '0', 'VELARDE ANICAMA ROSANNA CAROLI', 373.0, 0, 0, 0, 0, 0, '20180328')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210156', '210', '156', '11508882', '0', 'SUASNABAR HUAPAYA JOSHUA', 15.0, 0, 0, 0, 0, 0, '20170102')"
+                        "registro": "('108', 'ING.SISTEMAS', '210010', '210', '010', '12010787', '0', 'YENIFER YADHIRA NIETO CISNEROS', 373.0, 0, 0, 0, 0, 0, '20180328')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210156', '210', '156', '11533646', '0', 'EDWIN VILLAVICENCIO LOAIZA', 15.0, 0, 0, 0, 0, 0, '20170102')"
+                        "registro": "('108', 'ING.SISTEMAS', '210010', '210', '010', '12060226', '0', 'MIGUEL ANGEL CANO LENGUA', 500.0, 0, 0, 0, 0, 0, '20180328')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210156', '210', '156', '11549972', '0', 'GOICOCHEA GUIVIN JOSE', 15.0, 0, 0, 0, 0, 0, '20170102')"
+                        "registro": "('108', 'ING.SISTEMAS', '210010', '210', '010', '12064882', '0', 'NORMAN ALEXIS FONG OCHOA', 373.0, 0, 0, 0, 0, 0, '20180328')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210168', '210', '168', '11601972', '0', 'ASENCIOS CANICOBA PAOLA KARINA', 50.0, 0, 0, 0, 0, 0, '20170102')"
+                        "registro": "('108', 'ING.SISTEMAS', '210010', '210', '010', '12072398', '0', 'PINEDA ESTEVES AMALIA VICTORIA', 373.0, 0, 0, 0, 0, 0, '20180328')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210201', '210', '201', '7965308', '10200030', 'ESPINOZA RAMIREZ MAYCOL HENRRY', 151.0, 0, 0, 0, 0, 0, '20170102')"
+                        "registro": "('108', 'ING.SISTEMAS', '210011', '210', '011', '11728730', '0', 'ELIANA NELIDA MARAVI ORTEGA', 750.0, 0, 0, 0, 0, 0, '20180328')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210201', '210', '201', '11577189', '0', 'RAMOS RODRIGUEZ RONALD GODOFRE', 151.0, 0, 0, 0, 0, 0, '20170102')"
+                        "registro": "('108', 'ING.SISTEMAS', '210011', '210', '011', '12010789', '0', 'YENIFER YADHIRA NIETO CISNEROS', 916.0, 0, 0, 0, 0, 0, '20180328')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210201', '210', '201', '11629714', '0', 'CARLOS EDUARDO OCROSPOMA SARAS', 151.0, 0, 0, 0, 0, 0, '20170102')"
+                        "registro": "('108', 'ING.SISTEMAS', '210011', '210', '011', '12059560', '0', 'JUAN ABEL LANDEO JACINTO', 680.0, 0, 0, 0, 0, 0, '20180328')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210308', '210', '308', '11577182', '0', 'KARIN MILAGROS DIAZ OBREGON', 36.0, 0, 0, 0, 0, 0, '20170102')"
+                        "registro": "('108', 'ING.SISTEMAS', '210011', '210', '011', '12072397', '0', 'PINEDA ESTEVES AMALIA VICTORIA', 973.25, 0, 0, 0, 0, 0, '20180328')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210308', '210', '308', '11640744', '0', 'RENZO DE JESUS CEDRON MASIAS', 144.0, 0, 0, 0, 0, 0, '20170102')"
+                        "registro": "('108', 'ING.SISTEMAS', '210104', '210', '104', '12006551', '0', 'MOISES POMA POMA', 36.0, 0, 0, 0, 0, 0, '20180328')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210338', '210', '338', '11591682', '0', 'ALEXANDER ALIPIO LOREDO PURIZA', 280.0, 0, 0, 0, 0, 0, '20170102')"
+                        "registro": "('108', 'ING.SISTEMAS', '210010', '210', '010', '8736362', '962778', 'BELLIDO HUAMANI SABINO EDWIN', 373.0, 0, 0, 0, 0, 0, '20180331')"
+                    },
+                    {
+                        "registro": "('108', 'ING.SISTEMAS', '210010', '210', '010', '10938203', '0', 'VIVAR ALVAREZ KATHERINE', 373.0, 0, 0, 0, 0, 0, '20180331')"
                     }
                 ],
-                "registros_excluidos": 19,
-                "registros_insertados": 0,
-                "registros_procesados": 19,
-                "status": "OK"
-            },
-            {
-                "filename": "Sistemas_recaud.03-01-17.xls",
-                "registros_duplicados_detalle": [
+                "registros_excluidos": 20,
+                "registros_insertados": 57,
+                "registros_insertados_detalle": [
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210011', '210', '011', '11556406', '0', 'HAWS IVAN SARMIENTO MEZA', 850.0, 0, 0, 0, 0, 0, '20170103')"
+                        "registro": "('108', 'ING.SISTEMAS', '210011', '210', '011', '8568316', '17207009', 'CHAFFO HUAMAN MANUEL WINSTON', 750.0, 0, 0, 0, 0, 0, '20180102')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210011', '210', '011', '11556407', '0', 'HAWS IVAN SARMIENTO MEZA-', 850.0, 0, 0, 0, 0, 0, '20170103')"
+                        "registro": "('108', 'ING.SISTEMAS', '210011', '210', '011', '8568884', '16207006', 'CORTEZ VERA LUIS MARCIAL', 2720.0, 0, 0, 0, 0, 0, '20180102')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210011', '210', '011', '11556408', '0', 'HAWS IVAN SARMIENTO MEZA', 850.0, 0, 0, 0, 0, 0, '20170103')"
+                        "registro": "('108', 'ING.SISTEMAS', '210011', '210', '011', '11535822', '16207098', 'VERA ORELLANA BRENDALIZ GERALD', 850.0, 0, 0, 0, 0, 0, '20180102')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210011', '210', '011', '11633675', '0', 'ANITA PRIETTO CHICATA', 1800.0, 0, 0, 0, 0, 0, '20170103')"
+                        "registro": "('108', 'ING.SISTEMAS', '210011', '210', '011', '11982305', '0', 'VEREAU AGREDA DIEGO ANDRE', 750.0, 0, 0, 0, 0, 0, '20180102')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210011', '210', '011', '11673801', '0', 'VEREAU AGREDA DIEGO A.', 750.0, 0, 0, 0, 0, 0, '20170103')"
+                        "registro": "('108', 'ING.SISTEMAS', '210011', '210', '011', '11982306', '0', 'VEREAU AGREDA DIEGO ANDRE', 750.0, 0, 0, 0, 0, 0, '20180102')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210011', '210', '011', '11673802', '0', 'VEREAU AGREDA DIEGO A.', 750.0, 0, 0, 0, 0, 0, '20170103')"
+                        "registro": "('108', 'ING.SISTEMAS', '210011', '210', '011', '11982307', '0', 'VEREAU AGREDA DIEGO ANDRE', 750.0, 0, 0, 0, 0, 0, '20180102')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210101', '210', '101', '7969982', '4200207', 'MELENDEZ MELENDEZ ROY KELVIN', 270.0, 0, 0, 0, 0, 0, '20170103')"
+                        "registro": "('108', 'ING.SISTEMAS', '210011', '210', '011', '11982308', '0', 'VEREAU AGREDA DIEGO ANDRE', 750.0, 0, 0, 0, 0, 0, '20180102')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210106', '210', '106', '11614598', '0', 'ERICK JUNIOR RIOS MENDOZA', 26.0, 0, 0, 0, 0, 0, '20170103')"
+                        "registro": "('108', 'ING.SISTEMAS', '210168', '210', '168', '8571522', '17207024', 'JOAQUIN FUERTES NILTON GUILLER', 21.0, 0, 0, 0, 0, 0, '20180103')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210155', '210', '155', '7970548', '2200030', 'CONDORI BALLENA MARCO ANTONIO', 26.0, 0, 0, 0, 0, 0, '20170103')"
+                        "registro": "('108', 'ING.SISTEMAS', '210011', '210', '011', '8581743', '17207024', 'JOAQUIN FUERTES NILTON GUILLER', 2720.0, 0, 0, 0, 0, 0, '20180105')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210156', '210', '156', '7969987', '4200207', 'MELENDEZ MELENDEZ ROY KELVIN', 15.0, 0, 0, 0, 0, 0, '20170103')"
+                        "registro": "('108', 'ING.SISTEMAS', '210023', '210', '023', '11963393', '0', 'JUDITH JUOQUINA RAMIREZ CASTRO', 300.0, 0, 0, 0, 0, 0, '20180105')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210156', '210', '156', '11549880', '0', 'CHAVEZ VASQUEZ JUAN', 15.0, 0, 0, 0, 0, 0, '20170103')"
+                        "registro": "('108', 'ING.SISTEMAS', '210010', '210', '010', '8583671', '13207109', 'NUNEZ VERGARA NELSON FERNANDO', 150.0, 0, 0, 0, 0, 0, '20180106')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210156', '210', '156', '11674090', '0', 'CHAVEZ ALIAGA LUIS', 15.0, 0, 0, 0, 0, 0, '20170103')"
+                        "registro": "('108', 'ING.SISTEMAS', '210011', '210', '011', '8583666', '13207109', 'NUNEZ VERGARA NELSON FERNANDO', 3600.0, 0, 0, 0, 0, 0, '20180106')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210177', '210', '177', '11606343', '0', 'JAQUELINA LISBEL CAMIZAN LOZAN', 15.0, 0, 0, 0, 0, 0, '20170103')"
+                        "registro": "('113', 'ING.SISTEMAS', '210011', '210', '011', '8583955', '13207109', 'NUNEZ VERGARA NELSON FERNANDO', 771.6, 0, 0, 0, 0, 0, '20180106')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210201', '210', '201', '7969212', '9200168', 'NORIEGA YARLEQUE HECTOR', 151.0, 0, 0, 0, 0, 0, '20170103')"
+                        "registro": "('108', 'ING.SISTEMAS', '210011', '210', '011', '11927617', '0', 'LAREDO MONTERO ARTURO WINSTON', 600.0, 0, 0, 0, 0, 0, '20180108')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210201', '210', '201', '7971972', '10200063', 'CARRILLO ROSALES ANTHONY JOFFR', 151.0, 0, 0, 0, 0, 0, '20170103')"
+                        "registro": "('108', 'ING.SISTEMAS', '210011', '210', '011', '11927618', '0', 'LAREDO MONTERO ARTURO WINSTON', 600.0, 0, 0, 0, 0, 0, '20180108')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210201', '210', '201', '11620734', '0', 'DAVILA OLIVOS MAYRA ALEJANDRA', 151.0, 0, 0, 0, 0, 0, '20170103')"
+                        "registro": "('108', 'ING.SISTEMAS', '210011', '210', '011', '11927619', '0', 'LAREDO MONTERO ARTURO WINSTON', 600.0, 0, 0, 0, 0, 0, '20180108')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210202', '210', '202', '11606346', '0', 'JAQUELINA LISBEL CAMIZAN LOZAN', 1452.0, 0, 0, 0, 0, 0, '20170103')"
+                        "registro": "('108', 'ING.SISTEMAS', '210011', '210', '011', '11927620', '0', 'LAREDO MONTERO ARTURO WINSTON', 600.0, 0, 0, 0, 0, 0, '20180108')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210308', '210', '308', '11631585', '0', 'CINTHIA KELLY QUISPE CERNA', 240.0, 0, 0, 0, 0, 0, '20170103')"
+                        "registro": "('108', 'ING.SISTEMAS', '210011', '210', '011', '11927621', '0', 'LAREDO MONTERO ARTURO WINSTON', 600.0, 0, 0, 0, 0, 0, '20180108')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210314', '210', '314', '11496318', '0', 'ELIZABETH JACQUELINE PARDAVE T', 10.0, 0, 0, 0, 0, 0, '20170103')"
+                        "registro": "('108', 'ING.SISTEMAS', '210011', '210', '011', '11927622', '0', 'LAREDO MONTERO ARTURO WINSTON', 600.0, 0, 0, 0, 0, 0, '20180108')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210315', '210', '315', '11468452', '0', 'HUAYLLACAYAN LOARTE JOSE ANTON', 21.0, 0, 0, 0, 0, 0, '20170103')"
+                        "registro": "('108', 'ING.SISTEMAS', '210023', '210', '023', '11950504', '0', 'AYALA CALDERON RODRIGO HERNAND', 200.0, 0, 0, 0, 0, 0, '20180108')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210338', '210', '338', '7972094', '10200064', 'RODRIGUEZ VALDIVIA INGRID FIOR', 140.0, 0, 0, 0, 0, 0, '20170103')"
+                        "registro": "('108', 'ING.SISTEMAS', '210010', '210', '010', '11965950', '0', 'JUAN EDUARDO BECERRA CANALES', 750.0, 0, 0, 0, 0, 0, '20180109')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210338', '210', '338', '7972098', '10200064', 'RODRIGUEZ VALDIVIA INGRID FIOR', 140.0, 0, 0, 0, 0, 0, '20170103')"
+                        "registro": "('108', 'ING.SISTEMAS', '210011', '210', '011', '11965944', '0', 'LAREDO MONTERO ARTURO WINSTON', 600.0, 0, 0, 0, 0, 0, '20180109')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210338', '210', '338', '10061351', '0', 'ALDO RAUL RAMIREZ MARTINEZ', 140.0, 0, 0, 0, 0, 0, '20170103')"
+                        "registro": "('108', 'ING.SISTEMAS', '210011', '210', '011', '11965949', '0', 'JUAN EDUARDO BECERRA CANALES', 2000.0, 0, 0, 0, 0, 0, '20180109')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210338', '210', '338', '10061352', '0', 'ALDO RAUL RAMIREZ MARTINEZ', 140.0, 0, 0, 0, 0, 0, '20170103')"
+                        "registro": "('108', 'ING.SISTEMAS', '210011', '210', '011', '11965977', '0', 'MITMA ORDAZ RHALPH KIRK', 850.0, 0, 0, 0, 0, 0, '20180109')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210338', '210', '338', '11448366', '0', 'LIZBETH ALEXANDRA LEYVA EGOAVI', 140.0, 0, 0, 0, 0, 0, '20170103')"
+                        "registro": "('108', 'ING.SISTEMAS', '210011', '210', '011', '11965978', '0', 'MITMA ORDAZ RHALPH KIRK', 850.0, 0, 0, 0, 0, 0, '20180109')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210338', '210', '338', '11570652', '0', 'DURAND CONDOR MELADY YOMIRA', 140.0, 0, 0, 0, 0, 0, '20170103')"
+                        "registro": "('108', 'ING.SISTEMAS', '210023', '210', '023', '12020572', '0', 'ROSA ELENA ESPINOZA MARIN', 300.0, 0, 0, 0, 0, 0, '20180110')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210338', '210', '338', '11570653', '0', 'DURAND CONDOR MELADY YOMIRA', 140.0, 0, 0, 0, 0, 0, '20170103')"
+                        "registro": "('108', 'ING.SISTEMAS', '210023', '210', '023', '12020573', '0', 'ZULEMA LORENNA VELASQUEZ LAZAR', 300.0, 0, 0, 0, 0, 0, '20180110')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210338', '210', '338', '11604759', '0', 'VICTOR MANUEL ALEXANDER PALMA', 140.0, 0, 0, 0, 0, 0, '20170103')"
+                        "registro": "('113', 'ING.SISTEMAS', '210011', '210', '011', '11992015', '0', 'NOVOA LUCANO HENRY SEGUNDO', 771.6, 0, 0, 0, 0, 0, '20180111')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210338', '210', '338', '11674093', '0', 'BASURTO PEDROZA JOSE ENRIQUE', 140.0, 0, 0, 0, 0, 0, '20170103')"
+                        "registro": "('108', 'ING.SISTEMAS', '210165', '210', '165', '11954074', '0', 'RAMON MIGUEL DE LA CRUZ LAZARO', 50.0, 0, 0, 0, 0, 0, '20180112')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210338', '210', '338', '7970163', '11200214', 'ORMEÐO VARGAS CARLOS ALBERTO Y', 140.0, 0, 0, 0, 0, 0, '20170103')"
+                        "registro": "('108', 'ING.SISTEMAS', '210168', '210', '168', '8599396', '17207001', 'ALHUAY QUISPE JOEL JONATHAN', 21.0, 0, 0, 0, 0, 0, '20180112')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210338', '210', '338', '7970167', '11200214', 'ORMEÐO VARGAS CARLOS ALBERTO Y', 140.0, 0, 0, 0, 0, 0, '20170103')"
+                        "registro": "('113', 'ING.SISTEMAS', '210011', '210', '011', '8604731', '16207048', 'SALAZAR CANCHIHUAMAN BRIAN WIL', 770.16, 0, 0, 0, 0, 0, '20180117')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210338', '210', '338', '7970390', '11200047', 'ALVAREZ CABALLERO LUIS', 161.0, 0, 0, 0, 0, 0, '20170103')"
+                        "registro": "('108', 'UPG SISTEMAS', '210011', '210', '011', '8604747', '16207048', 'SALAZAR CANCHIHUAMAN BRIAN WIL', 3400.0, 0, 0, 0, 0, 0, '20180117')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210338', '210', '338', '10135850', '0', 'DIAZ CARPIO ANTHONY MOISES', 140.0, 0, 0, 0, 0, 0, '20170103')"
+                        "registro": "('108', 'UPG SISTEMAS', '210011', '210', '011', '11928452', '0', 'CHAVEZ FLORES REILLY', 3400.0, 0, 0, 0, 0, 0, '20180117')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210338', '210', '338', '11154645', '0', 'CARDENAS GRANDEZ JORGE ALEXIS', 140.0, 0, 0, 0, 0, 0, '20170103')"
+                        "registro": "('108', 'ING.SISTEMAS', '210169', '210', '169', '12008208', '0', 'BRIAN CESAR PANDO SOTO', 103.0, 0, 0, 0, 0, 0, '20180118')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210338', '210', '338', '11154646', '0', 'CARDENAS GRANDEZ JORGE ALEXIS', 140.0, 0, 0, 0, 0, 0, '20170103')"
+                        "registro": "('108', 'ING.SISTEMAS', '210202', '210', '202', '12008205', '0', 'BRIAN CESAR PANDO SOTO', 1452.0, 0, 0, 0, 0, 0, '20180118')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210338', '210', '338', '11313185', '0', 'MIGUEL ANGEL RIMAYCUNA CHAVEZ', 140.0, 0, 0, 0, 0, 0, '20170103')"
+                        "registro": "('108', 'ING.SISTEMAS', '210168', '210', '168', '8609758', '13207117', 'MELGAREJO ROJAS NILTON FREDY', 21.0, 0, 0, 0, 0, 0, '20180120')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210338', '210', '338', '11363988', '0', 'AGUILAR ALCARRAZ JANS JOSEPH', 140.0, 0, 0, 0, 0, 0, '20170103')"
+                        "registro": "('113', 'ING.SISTEMAS', '210011', '210', '011', '8609756', '13207117', 'MELGAREJO ROJAS NILTON FREDY', 513.92, 0, 0, 0, 0, 0, '20180120')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210338', '210', '338', '11363990', '0', 'AGUILAR ALCARRAZ JAN JOSEPH', 140.0, 0, 0, 0, 0, 0, '20170103')"
+                        "registro": "('108', 'ING.SISTEMAS', '210010', '210', '010', '11981627', '0', 'JORGE LUIS MARIN CANTA', 300.0, 0, 0, 0, 0, 0, '20180122')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210338', '210', '338', '11492542', '0', 'JAIME EDUARDO CUBA LUYA', 140.0, 0, 0, 0, 0, 0, '20170103')"
+                        "registro": "('108', 'ING.SISTEMAS', '210011', '210', '011', '11953925', '0', 'JORGE LUIS MARIN CANTA', 1200.0, 0, 0, 0, 0, 0, '20180122')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210338', '210', '338', '11492543', '0', 'JAIME EDUARDO CUBA LUYA', 140.0, 0, 0, 0, 0, 0, '20170103')"
+                        "registro": "('108', 'ING.SISTEMAS', '210024', '210', '024', '12028683', '0', 'CAROL GINET FUENTES PEREZ', 2400.0, 0, 0, 0, 0, 0, '20180122')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210338', '210', '338', '11496317', '0', 'ELIZABETH JACQUELINE PARDAVE T', 280.0, 0, 0, 0, 0, 0, '20170103')"
+                        "registro": "('108', 'ING.SISTEMAS', '210165', '210', '165', '8611859', '13207117', 'MELGAREJO ROJAS NILTON FREDY', 50.0, 0, 0, 0, 0, 0, '20180122')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210338', '210', '338', '11549814', '0', 'SERGIO RAUL ARTEAGA BONELLI', 140.0, 0, 0, 0, 0, 0, '20170103')"
+                        "registro": "('113', 'ING.SISTEMAS', '210011', '210', '011', '12034685', '0', 'JULIO CESAR MARTINEZ CHUNGA', 770.88, 0, 0, 0, 0, 0, '20180124')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210338', '210', '338', '11468451', '0', 'HUAYLLACAYAN LOARTE JOSE ANTON', 140.0, 0, 0, 0, 0, 0, '20170103')"
+                        "registro": "('108', 'UPG SISTEMAS', '210011', '210', '011', '8614034', '15207124', 'MARTINEZ CHUNGA JULIO CESAR', 750.0, 0, 0, 0, 0, 0, '20180124')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210338', '210', '338', '11594289', '0', 'JAIME ALONSO DIAZ ITURRIZAGA', 140.0, 0, 0, 0, 0, 0, '20170103')"
+                        "registro": "('108', 'UPG SISTEMAS', '210011', '210', '011', '8614036', '15207124', 'MARTINEZ CHUNGA JULIO CESAR', 750.0, 0, 0, 0, 0, 0, '20180124')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210338', '210', '338', '11597403', '0', 'LUQUE AYALA JUAN ALEXIS', 140.0, 0, 0, 0, 0, 0, '20170103')"
+                        "registro": "('108', 'ING.SISTEMAS', '210011', '210', '011', '12017623', '0', 'VIRGINIA ACHA LOPEZ', 2400.0, 0, 0, 0, 0, 0, '20180125')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210338', '210', '338', '11597405', '0', 'LUQUE AYALA JUAN ALEXIS', 140.0, 0, 0, 0, 0, 0, '20170103')"
+                        "registro": "('108', 'UPG SISTEMAS', '210011', '210', '011', '8618142', '15207028', 'TARAZONA CASTILLO JESUS JOSE', 3000.0, 0, 0, 0, 0, 0, '20180126')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210338', '210', '338', '11613572', '0', 'ORTIZ PORTUGUEZ EDUARD BRIANCE', 140.0, 0, 0, 0, 0, 0, '20170103')"
+                        "registro": "('108', 'UPG SISTEMAS', '210011', '210', '011', '11981385', '0', 'JUAN GENARO FIGUEROA VALDERRAM', 750.0, 0, 0, 0, 0, 0, '20180126')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210338', '210', '338', '11632402', '0', 'QUILCA CASTANEDA WENDY ESTEFAN', 140.0, 0, 0, 0, 0, 0, '20170103')"
+                        "registro": "('108', 'UPG SISTEMAS', '210011', '210', '011', '8618645', '17207020', 'OSORIO AVALOS CRISTHIAN JHOEL', 850.0, 0, 0, 0, 0, 0, '20180127')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210338', '210', '338', '11632410', '0', 'QUILCA CASTANEDA WENDY ESTEFAN', 140.0, 0, 0, 0, 0, 0, '20170103')"
+                        "registro": "('108', 'UPG SISTEMAS', '210011', '210', '011', '8618920', '16207021', 'REYNA MENDEZ MILTON JOSE', 3400.0, 0, 0, 0, 0, 0, '20180127')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210338', '210', '338', '11633350', '0', 'CRISTIAN YANPIAR SUAZO APOLINA', 140.0, 0, 0, 0, 0, 0, '20170103')"
+                        "registro": "('108', 'ING.SISTEMAS', '210112', '210', '112', '12052623', '0', 'ALFARO BARRIENTOS RAUL ABEL', 234.0, 0, 0, 0, 0, 0, '20180127')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210338', '210', '338', '11633351', '0', 'CRISTIAN YANPIAR SUAZO APOLINA', 140.0, 0, 0, 0, 0, 0, '20170103')"
+                        "registro": "('113', 'ING.SISTEMAS', '210011', '210', '011', '8618894', '16207021', 'REYNA MENDEZ MILTON JOSE', 385.44, 0, 0, 0, 0, 0, '20180127')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210338', '210', '338', '11634401', '0', 'INGUNZA ALVAREZ ARNOLD LUIS AL', 140.0, 0, 0, 0, 0, 0, '20170103')"
+                        "registro": "('108', 'ING.SISTEMAS', '210011', '210', '011', '8620218', '17207010', 'LANDEO JACINTO JUAN ABEL', 680.0, 0, 0, 0, 0, 0, '20180129')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210338', '210', '338', '11634402', '0', 'DE LA CRUZ SANCHEZ MARIA MERCE', 140.0, 0, 0, 0, 0, 0, '20170103')"
+                        "registro": "('108', 'ING.SISTEMAS', '210023', '210', '023', '11981383', '0', 'MARITZA CECILIA PECEROS BOCANG', 420.0, 0, 0, 0, 0, 0, '20180129')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210338', '210', '338', '11643894', '0', 'ANALI GALINDOS DE LA CRUZ', 140.0, 0, 0, 0, 0, 0, '20170103')"
+                        "registro": "('108', 'ING.SISTEMAS', '210011', '210', '011', '8622125', '17207010', 'LANDEO JACINTO JUAN ABEL', 680.0, 0, 0, 0, 0, 0, '20180130')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210338', '210', '338', '11643895', '0', 'ANALI GALINDOS DE LA CRUZ', 140.0, 0, 0, 0, 0, 0, '20170103')"
+                        "registro": "('108', 'ING.SISTEMAS', '210023', '210', '023', '11944793', '0', 'KATHERINE OLORTEGUI YOPLA', 150.0, 0, 0, 0, 0, 0, '20180130')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210338', '210', '338', '11674051', '0', 'SANCHEZ TOMASTO GERGE KEVIN', 140.0, 0, 0, 0, 0, 0, '20170103')"
+                        "registro": "('108', 'ING.SISTEMAS', '210023', '210', '023', '11982078', '0', 'ELIZABETH TURIN NEYRA', 210.0, 0, 0, 0, 0, 0, '20180130')"
                     },
                     {
-                        "registro": "('108', 'ING.SISTEMAS', '210338', '210', '338', '11674052', '0', 'SANCHEZ TOMASTO GERGE KEVIN', 140.0, 0, 0, 0, 0, 0, '20170103')"
-                    },
-                    {
-                        "registro": "('108', 'ING.SISTEMAS', '210338', '210', '338', '11683291', '0', 'RAUL SULCA PALACIOS', 140.0, 0, 0, 0, 0, 0, '20170103')"
-                    },
-                    {
-                        "registro": "('108', 'ING.SISTEMAS', '210509', '210', '509', '11566267', '0', 'JESUS MIRYAM ARCE VENTOCILLA', 600.0, 0, 0, 0, 0, 0, '20170103')"
-                    },
-                    {
-                        "registro": "('108', 'ING.SISTEMAS', '210509', '210', '509', '11566268', '0', 'JESUS MIRYAM ARCE VENTOCILLA', 600.0, 0, 0, 0, 0, 0, '20170103')"
+                        "registro": "('108', 'ING.SISTEMAS', '210508', '210', '508', '0', '0', 'LEON FERNANDEZ CAYO', 425.0, 0, 0, 0, 0, 0, '20180124')"
                     }
                 ],
-                "registros_excluidos": 60,
-                "registros_insertados": 0,
-                "registros_procesados": 60,
+                "registros_procesados": 77,
                 "status": "OK"
             }
         ],
-        "total_registros_excluidos": 79,
-        "total_registros_insertados": 0,
-        "total_registros_procesados": 79
-    }
+        "total_registros_excluidos": 20,
+        "total_registros_insertados": 57,
+        "total_registros_procesados": 77
+    },
+    "no_procesados": 1
 }
 export default pruebaZip;

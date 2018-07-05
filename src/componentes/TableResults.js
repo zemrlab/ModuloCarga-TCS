@@ -1,6 +1,7 @@
 import React from 'react';
 import ResultadosZip from './ResultadosZip';
 import ResultadosExcel from './ResultadosExcel';
+import AlertaCarga from './AlertaCarga';
 
 class TableResults extends React.Component {
     constructor(props) {
@@ -70,6 +71,9 @@ class TableResults extends React.Component {
             if (this.props.tipo === "zip") {
                 return (
                     <div>
+                        <AlertaCarga
+                            no_procesados={this.props.no_procesados}
+                        />
                         <ResultadosZip
                             selectGoodTable={this.selectGoodTable}
                             selectDuplexTable={this.selectDuplexTable}
@@ -78,7 +82,8 @@ class TableResults extends React.Component {
                             total_registros_insertados={this.props.total_registros_insertados}
                             total_registros_excluidos={this.props.total_registros_excluidos}
                             archivo={this.props.archivo}
-                            openModalDetalle={this.props.openModalDetalle}
+                            openModalDuplicados={this.props.openModalDuplicados}
+                            openModalInsertados={this.props.openModalInsertados}
                             tipo={this.state.tipo}
                             subtipo={this.state.subtipo}
                             listado={this.state.listado}
@@ -94,8 +99,10 @@ class TableResults extends React.Component {
                             total_registros_excluidos={this.props.total_registros_excluidos}
                             archivo={this.props.archivo}
                             status={this.props.status}
-                            lista_detalle={this.props.lista_detalle}
-                            openModalDetalle={this.props.openModalDetalle}
+                            lista_detalle_duplicados={this.props.lista_detalle_duplicados}
+                            openModalDuplicados={this.props.openModalDuplicados}
+                            lista_detalle_insertados={this.props.lista_detalle_insertados}
+                            openModalInsertados={this.props.openModalInsertados}
                         />
                     </div>
                 )

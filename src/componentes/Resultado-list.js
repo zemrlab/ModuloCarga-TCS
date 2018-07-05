@@ -11,7 +11,8 @@ class ResultadoList extends React.Component {
           this.props.listado.map((content) => {
             numbers = numbers + 1;
             return <ResultadoRow
-              openModalDetalle={this.props.openModalDetalle}
+              openModalDuplicados={this.props.openModalDuplicados}
+              openModalInsertados={this.props.openModalInsertados}
               number={numbers}
               tipo={this.props.tipo}
               subtipo={this.props.subtipo}

@@ -10,6 +10,7 @@ class CapturaDatos extends React.Component {
                         <div className="col-xs-12 col-md-6">
                             <input
                                 type="file"
+                                id="filereader"
                                 className="fileInput"
                                 pattern=".*[^ ].*"
                                 required
@@ -21,6 +22,7 @@ class CapturaDatos extends React.Component {
                             <input className="labelinput"
                                 value={this.props.value}
                                 disabled
+                                required
                             />
                         </div>
                         <div className="col-xs-6 col-md-3">
@@ -31,9 +33,9 @@ class CapturaDatos extends React.Component {
                                 value={this.props.formato}
                                 onChange={(e) => this.props.changeFormato(e.target.value)}
                             >
-                                <option value="" disabled>Tipo de Archivo</option>
-                                <option value="1">(1) Despues del 2010</option>
-                                <option value="2">(2) Del 2010 o antes</option>
+                                <option value="" disabled>Tipo de Moneda</option>
+                                <option value="1">1. Soles</option>
+                                <option value="2">2. Dólares</option>
                             </select>
                         </div>
                         <div className="col-xs-2 col-md-1">

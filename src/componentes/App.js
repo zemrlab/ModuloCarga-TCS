@@ -7,9 +7,13 @@ import '../style/label.css';
 import '../flexboxgrid.min.css';
 import TableResults from './TableResults';
 import HelpModal from './HelpModal';
-import DetalleModal from './DetalleModal';
+import DuplicadosModal from './DuplicadosModal';
+import InsertadosModal from './InsertadosModal';
 import CapturaDatos from './CapturaDatos';
 import Cabecera from './Cabecera';
+
+import pruebaZip from './pruebaZip';
+import pruebaExcel from './pruebaExcel';
 
 class App extends React.Component {
     constructor(props) {
@@ -31,15 +35,19 @@ class App extends React.Component {
             good_files: null,
             bad_files: null,
             status_excel: "",
+            no_procesados: 0,
             //modal de ayuda
             help: false,
             //modal de detalles de duplicados
-            detalle: false,
-            lista_detalle: []
+            detalle_duplicados: false,
+            lista_detalle_duplicados: [],
+            //modal de detalles de insertados
+            detalle_insertados: false,
+            lista_detalle_insertados: []
 
         };
     }
-    
+
     //metodo de carga del archivo
     handleSubmit = (e) => {
         e.preventDefault();
@@ -111,6 +119,30 @@ class App extends React.Component {
                 usuario: usuario
             })
         }
+
+        this.setState({
+            value: 'zip',
+            archivo: pruebaZip.file,
+            total_registros_insertados: pruebaZip.good_files.total_registros_insertados,
+            total_registros_procesados: pruebaZip.good_files.total_registros_procesados,
+            total_registros_excluidos: pruebaZip.good_files.total_registros_excluidos,
+            good_files: pruebaZip.good_files.lista_detalle,
+            bad_files: pruebaZip.bad_files,
+            no_procesados: pruebaZip.no_procesados
+        })
+
+        /*
+        this.setState({
+            value: 'excel',
+            archivo: pruebaExcel.filename,
+            status_excel: pruebaExcel.status,
+            total_registros_insertados: pruebaExcel.registros_insertados,
+            total_registros_procesados: pruebaExcel.registros_procesados,
+            total_registros_excluidos: pruebaExcel.registros_excluidos,
+            lista_detalle_insertados: pruebaExcel.registros_insertados_detalle,
+            lista_detalle_duplicados: pruebaExcel.registros_duplicados_detalle
+        })
+        */
     }
 
     //metodo de modificación de archivos
@@ -134,25 +166,37 @@ class App extends React.Component {
             //capturamos el formato
             if (file.name.endsWith(".xls")) {
                 tipoFile = 'excel'
+                reader.onloadend = () => {
+                    this.setState({
+                        file: file,
+                        excelUrl: reader.result,
+                        value: tipoFile
+                    });
+                }
+                reader.readAsDataURL(file)
             } else if (file.name.endsWith(".zip")) {
                 tipoFile = 'zip'
+                reader.onloadend = () => {
+                    this.setState({
+                        file: file,
+                        excelUrl: reader.result,
+                        value: tipoFile
+                    });
+                }
+                reader.readAsDataURL(file)
+            } else {
+                document.getElementById('filereader').value = "";
+                alert('Archivo no válido.\nSolo se admiten archivos con formato\n.zip y .xls');
             }
-            reader.onloadend = () => {
-                this.setState({
-                    file: file,
-                    excelUrl: reader.result,
-                    value: tipoFile
-                });
-            }
-            reader.readAsDataURL(file)
         } catch (e) {
+            document.getElementById('filereader').value = "";
             console.error(e);
         }
     }
 
     //metodo de cambio de formato del archivo (1 o 2)
     changeFormato = (formato) => {
-        this.setState(()=>({
+        this.setState(() => ({
             formato: formato
         }))
     }
@@ -168,24 +212,39 @@ class App extends React.Component {
     }
 
     //capturamos la lista de detalles y desplegamos el modal
-    openModalDetalle = (lista_detalle) => {
+    openModalDuplicados = (lista_detalle_duplicados) => {
         this.setState(() => ({
-            lista_detalle: lista_detalle,
-            detalle: true
+            lista_detalle_duplicados: lista_detalle_duplicados,
+            detalle_duplicados: true
         }))
     }
 
     //cerramos el modal
-    closeModalDetalle = () => {
+    closeModalDuplicados = () => {
         this.setState(() => ({
-            detalle: false
+            detalle_duplicados: false
+        }))
+    }
+
+    //capturamos la lista de detalles y desplegamos el modal
+    openModalInsertados = (lista_detalle_insertados) => {
+        this.setState(() => ({
+            lista_detalle_insertados: lista_detalle_insertados,
+            detalle_insertados: true
+        }))
+    }
+
+    //cerramos el modal
+    closeModalInsertados = () => {
+        this.setState(() => ({
+            detalle_insertados: false
         }))
     }
 
     render() {
         return (
             <div>
-                <Cabecera/>
+                <Cabecera />
                 <div className="vista" >
                     <div className="row">
                         <div className="col-xs-12 col-md-6">
@@ -219,16 +278,24 @@ class App extends React.Component {
                             good_files={this.state.good_files}
                             bad_files={this.state.bad_files}
                             status={this.state.status_excel}
+                            no_procesados={this.state.no_procesados}
                             select={this.state.select}
                             tipo={this.state.value}
-                            openModalDetalle={this.openModalDetalle}
-                            lista_detalle={this.state.lista_detalle}
+                            openModalDuplicados={this.openModalDuplicados}
+                            lista_detalle_duplicados={this.state.lista_detalle_duplicados}
+                            openModalInsertados={this.openModalInsertados}
+                            lista_detalle_insertados={this.state.lista_detalle_insertados}
                         />
                     </div>
-                    <DetalleModal
-                        detalle={this.state.detalle}
-                        closeModalDetalle={this.closeModalDetalle}
-                        lista_detalle={this.state.lista_detalle}
+                    <DuplicadosModal
+                        detalle_duplicados={this.state.detalle_duplicados}
+                        closeModalDuplicados={this.closeModalDuplicados}
+                        lista_detalle_duplicados={this.state.lista_detalle_duplicados}
+                    />
+                    <InsertadosModal
+                        detalle_insertados={this.state.detalle_insertados}
+                        closeModalInsertados={this.closeModalInsertados}
+                        lista_detalle_insertados={this.state.lista_detalle_insertados}
                     />
                 </div>
             </div>

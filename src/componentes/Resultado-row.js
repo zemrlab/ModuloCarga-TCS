@@ -7,17 +7,17 @@ class ResultadoRow extends React.Component {
       if (this.props.subtipo === 'insert') {
         return (
           <tr>
-            <td className="td">{this.props.number}</td>
-            <td className="td">{this.props.content.filename}</td>
-            <td className="td">{this.props.content.registros_insertados}</td>
+            <td className="td cursor" onClick={(e)=>this.props.openModalInsertados(this.props.content.registros_insertados_detalle)}>{this.props.number}</td>
+            <td className="td cursor" onClick={(e)=>this.props.openModalInsertados(this.props.content.registros_insertados_detalle)}>{this.props.content.filename}</td>
+            <td className="td cursor" onClick={(e)=>this.props.openModalInsertados(this.props.content.registros_insertados_detalle)}>{this.props.content.registros_insertados}</td>
           </tr>
         )
       } else {
         return (
           <tr>
-            <td className="td cursor" onClick={(e)=>this.props.openModalDetalle(this.props.content.registros_duplicados_detalle)}>{this.props.number}</td>
-            <td className="td cursor" onClick={(e)=>this.props.openModalDetalle(this.props.content.registros_duplicados_detalle)}>{this.props.content.filename}</td>
-            <td className="td cursor" onClick={(e)=>this.props.openModalDetalle(this.props.content.registros_duplicados_detalle)}>{this.props.content.registros_excluidos}</td>
+            <td className="td cursor" onClick={(e)=>this.props.openModalDuplicados(this.props.content.registros_duplicados_detalle)}>{this.props.number}</td>
+            <td className="td cursor" onClick={(e)=>this.props.openModalDuplicados(this.props.content.registros_duplicados_detalle)}>{this.props.content.filename}</td>
+            <td className="td cursor" onClick={(e)=>this.props.openModalDuplicados(this.props.content.registros_duplicados_detalle)}>{this.props.content.registros_excluidos}</td>
           </tr>
         )
       }
