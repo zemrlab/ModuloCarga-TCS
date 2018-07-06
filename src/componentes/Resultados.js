@@ -1,3 +1,10 @@
+/*
+Autor: Ccopa Mamani, Andrés
+correo: andres.ccopa@unmsm.edu.pe
+Team AlphaZero
+Fecha: julio 2018
+*/
+
 import React from 'react';
 import ResultadosZip from './ResultadosZip';
 import ResultadosExcel from './ResultadosExcel';

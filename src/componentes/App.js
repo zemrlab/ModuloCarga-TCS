@@ -1,4 +1,11 @@
-﻿import React from 'react';
+﻿/*
+Autor: Ccopa Mamani, Andrés
+correo: andres.ccopa@unmsm.edu.pe
+Team AlphaZero
+Fecha: julio 2018
+*/
+
+import React from 'react';
 import '../style/style.css';
 import '../style/table.css';
 import '../style/button.css';
