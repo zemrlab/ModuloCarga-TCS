@@ -22,7 +22,6 @@ class AlertaStatusExcel extends React.Component {
                         <span className="closebtn" onClick={() => this.closeAlerta()}>&times;</span>
                         <strong>Estado:</strong> {this.props.status}.
                     </div>
-                    <br /><br />
                 </div>
             )
         }
@@ -33,7 +32,6 @@ class AlertaStatusExcel extends React.Component {
                         <span className="closebtn" onClick={() => this.closeAlerta()}>&times;</span>
                         <strong>Estado:</strong> {this.props.status}.
                     </div>
-                    <br /><br />
                 </div>
             )
         }
