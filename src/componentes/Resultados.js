@@ -62,10 +62,14 @@ class Resultados extends React.Component {
             if (this.props.select) {
                 return (
                     <div>
-                        <div className="container">
-                            <div className="row center-xs">
-                                Cargando...
-                            </div>
+                        <div className="row center-xs">
+                            <img src="https://loading.io/spinners/eclipse/lg.ring-loading-gif.gif"
+                                alt="Por favor espere..."
+                                height="150 px"
+                            />
+                        </div>
+                        <div className="row center-xs">
+                            Cargando...
                         </div>
                     </div>
                 )
